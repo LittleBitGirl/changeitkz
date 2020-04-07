@@ -137,18 +137,18 @@
                     @endauth
                 </li>
 
-                {!! view_render_event('bagisto.shop.layout.header.account-item.after') !!}
+{{--                {!! view_render_event('bagisto.shop.layout.header.account-item.after') !!}--}}
 
 
-                {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
+{{--                {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}--}}
 
-                <li class="cart-dropdown-container">
+{{--                <li class="cart-dropdown-container">--}}
 
-                    @include('shop::checkout.cart.mini-cart')
+{{--                    @include('shop::checkout.cart.mini-cart')--}}
 
-                </li>
+{{--                </li>--}}
 
-                {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
+{{--                {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}--}}
 
             </ul>
 
