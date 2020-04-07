@@ -9,10 +9,10 @@ return [
         'my-account' => 'Мой аккаунт',
         'profile' => 'Профиль',
         'address' => 'Адрес',
-        'reviews' => 'Отзывы',
+        'reviews' => 'Сделано',
         'wishlist' => 'Список желаний',
         'orders' => 'Заказы',
-        'downloadable-products' => 'Товары для скачивания'
+        'downloadable-products' => 'Предложения'
     ],
 
     'common' => [
@@ -341,15 +341,15 @@ return [
             ],
 
             'downloadable_products' => [
-                'title' => 'Загружаемые продукты',
-                'order-id' => 'ID заказа',
+                'title' => 'Мои предложения',
+                'order-id' => 'ID предложения',
                 'date' => 'Дата',
                 'name' => 'Заголовок',
                 'status' => 'Статус',
                 'pending' => 'В ожидании',
-                'available' => 'Доступно',
-                'expired' => 'Срок истек',
-                'remaining-downloads' => 'Остальные загрузки',
+                'available' => 'Подвержден',
+                'expired' => 'Отклонен',
+                'remaining-downloads' => 'Остальная информация',
                 'unlimited' => 'Неограничено',
                 'download-error' => 'Ссылка на скачивание устарела.'
             ],
