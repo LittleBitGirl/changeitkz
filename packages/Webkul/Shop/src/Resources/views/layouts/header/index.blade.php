@@ -7,12 +7,29 @@
                         @if ($logo = core()->getCurrentChannel()->logo_url)
                             <img class="logo" src="{{ $logo }}" />
                         @else
-                            <img class="logo" src="{{ bagisto_asset('images/logo.svg') }}" />
+                            <img class="bigger-logo" src="{{ bagisto_asset('images/changeit.png') }}" />
                         @endif
                     </a>
                 </li>
             </ul>
-
+            <ul class="filter-container">
+                <li>
+                    <div id="filter-control" class="control-group">
+                        <select id="category-filter" class="filter-column-select control">
+{{--                                 v-model="filterColumn" v-on:click="getColumnOrAlias(filterColumn)"   {{ __('ui::app.datagrid.column') }}--}}
+                            <option>Hello</option>
+                            <option>Category 1</option>
+{{--                                @foreach($results['columns'] as $column)--}}
+{{--                                    @if(isset($column['filterable']) && $column['filterable'])--}}
+{{--                                        <option value="{{ $column['index'] }}">--}}
+{{--                                            {{ $column['label'] }}--}}
+{{--                                        </option>--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
+                        </select>
+                    </div>
+                </li>
+            </ul>
             <ul class="search-container">
                 <li class="search-group">
                     <form role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">

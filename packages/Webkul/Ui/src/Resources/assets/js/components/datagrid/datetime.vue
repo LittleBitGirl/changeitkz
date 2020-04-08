@@ -30,7 +30,7 @@ export default {
 .datetime-field {
   border: 2px solid #c7c7c7;
   border-radius: 3px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   height: 35px;
   padding-left: 5px;
   color: gray;

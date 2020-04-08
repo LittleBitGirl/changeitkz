@@ -1,0 +1,30 @@
+.bigger-logo {
+    width: 70px!important;
+    height: 70px!important;
+}
+.header .header-top div.left-content ul.logo-container li img{
+    max-height: 80px!important;
+}
+.header-top{
+    margin-bottom: 0px !important;
+}
+
+.filter-container{
+    text-align: left;
+    display: flex;
+    box-shadow: none;
+    position: relative !important;
+}
+.filter-container.dropdown-list{
+    background-color: transparent;
+}
+#category-filter{
+    width: 90% !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 38px;
+}
+#filter-control{
+    width: 200px !important;
+    margin-bottom: 0;
+}
