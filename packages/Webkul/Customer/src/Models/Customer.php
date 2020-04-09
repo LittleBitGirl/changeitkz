@@ -2,17 +2,16 @@
 
 namespace Webkul\Customer\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Webkul\Checkout\Models\CartProxy;
-use Webkul\Sales\Models\OrderProxy;
-use Webkul\Product\Models\ProductReviewProxy;
-use Webkul\Customer\Notifications\CustomerResetPassword;
 use Webkul\Customer\Contracts\Customer as CustomerContract;
+use Webkul\Customer\Notifications\CustomerResetPassword;
+use Webkul\Product\Models\ProductReviewProxy;
+use Webkul\Sales\Models\OrderProxy;
 
-class Customer extends Authenticatable implements CustomerContract, JWTSubject
-{
+class Customer extends Authenticatable implements CustomerContract, JWTSubject {
     use Notifiable;
 
     protected $table = 'customers';
@@ -36,6 +35,18 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
 
     protected $hidden = ['password', 'api_token', 'remember_token'];
 
+
+    public function scopeByRang($query, $points)
+    {
+        return $query->where('points', '>=', $points)->groupBy('points')->orderByDesc('points');
+    }
+
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class, 'customers_achievements',
+            'customer_id', 'achievement_id');
+    }
+
     /**
      * Get the customer full name.
      */
@@ -49,7 +60,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
      */
     public function emailExists($email)
     {
-        $results =  $this->where('email', $email);
+        $results = $this->where('email', $email);
 
         if ($results->count() == 0) {
             return false;
@@ -67,11 +78,11 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
     }
 
     /**
-    * Send the password reset notification.
-    *
-    * @param  string  $token
-    * @return void
-    */
+     * Send the password reset notification.
+     *
+     * @param string $token
+     * @return void
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CustomerResetPassword($token));
@@ -127,7 +138,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
 
     /**
      * get all reviews of a customer
-    */
+     */
     public function all_reviews()
     {
         return $this->hasMany(ProductReviewProxy::modelClass(), 'customer_id');

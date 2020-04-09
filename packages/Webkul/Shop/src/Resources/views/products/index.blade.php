@@ -1,4 +1,5 @@
 @extends('shop::layouts.master')
+@extends('shop::layouts.master')
 
 @section('page_title')
     {{ trim($category->meta_title) != "" ? $category->meta_title : $category->name }}
