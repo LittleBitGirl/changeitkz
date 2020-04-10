@@ -12,8 +12,7 @@ use Webkul\Category\Contracts\CategoryTranslation as CategoryTranslationContract
  *
  * @property-read string $url_path maintained by database triggers
  */
-class CategoryTranslation extends Model implements CategoryTranslationContract
-{
+class CategoryTranslation extends Model implements CategoryTranslationContract {
     public $timestamps = false;
 
     protected $fillable = [
@@ -25,4 +24,9 @@ class CategoryTranslation extends Model implements CategoryTranslationContract
         'meta_keywords',
         'locale_id',
     ];
+
+    public function scopeOnlyRu($query)
+    {
+        return $query->where('locale', '=', 'ru');
+    }
 }

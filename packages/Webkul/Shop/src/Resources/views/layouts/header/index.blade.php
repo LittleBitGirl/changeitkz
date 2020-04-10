@@ -15,17 +15,15 @@
             <ul class="filter-container">
                 <li>
                     <div id="filter-control" class="control-group">
-                        <select id="category-filter" class="filter-column-select control">
-{{--                                 v-model="filterColumn" v-on:click="getColumnOrAlias(filterColumn)"   {{ __('ui::app.datagrid.column') }}--}}
-                            <option>Hello</option>
-                            <option>Category 1</option>
-{{--                                @foreach($results['columns'] as $column)--}}
-{{--                                    @if(isset($column['filterable']) && $column['filterable'])--}}
-{{--                                        <option value="{{ $column['index'] }}">--}}
-{{--                                            {{ $column['label'] }}--}}
-{{--                                        </option>--}}
-{{--                                    @endif--}}
-{{--                                @endforeach--}}
+                        <select id="category-filter" class="filter-column-select control" data-category="{{$categories = \Webkul\Category\Models\Category::onlyRu()->get()}}">
+                                @foreach($categories as $category)
+                                    @if(isset($category))
+                                        {!! $translation = $category['translations'][0]!!}
+                                        <option value="{{ $translation['slug'] }}">
+                                            {{ $translation['name'] }}
+                                        </option>
+                                    @endif
+                                @endforeach
                         </select>
                     </div>
                 </li>
@@ -189,7 +187,6 @@
         </form>
     </div>
 </div>
-
 @push('scripts')
     <script>
         $(document).ready(function() {
