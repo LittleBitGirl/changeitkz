@@ -2,13 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500">
 
         <style type="text/css">
             body{
                 margin: 45px;
                 font-size: 14px;
-                font-family: "Roboto", sans-serif;
+                font-family: "Noto Sans SC", sans-serif;
             }
             .styleguide-label{
                 color: #7f7f7f;

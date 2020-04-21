@@ -119,7 +119,6 @@ class ProductController extends Controller
         $families = $this->attributeFamilyRepository->all();
 
         $configurableFamily = null;
-
         if ($familyId = request()->get('family')) {
             $configurableFamily = $this->attributeFamilyRepository->find($familyId);
         }
@@ -134,13 +133,13 @@ class ProductController extends Controller
      */
     public function store()
     {
+        dd($this);
         if (! request()->get('family')
             && ProductType::hasVariants(request()->input('type'))
             && request()->input('sku') != ''
         ) {
             return redirect(url()->current() . '?type=' . request()->input('type') . '&family=' . request()->input('attribute_family_id') . '&sku=' . request()->input('sku'));
         }
-
         if (ProductType::hasVariants(request()->input('type'))
             && (! request()->has('super_attributes')
             || ! count(request()->get('super_attributes')))
@@ -174,7 +173,6 @@ class ProductController extends Controller
         $product = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
 
         $categories = $this->categoryRepository->getCategoryTree();
-
         $inventorySources = $this->inventorySourceRepository->all();
 
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
