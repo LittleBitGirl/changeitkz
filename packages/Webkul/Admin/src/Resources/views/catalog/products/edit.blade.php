@@ -3,14 +3,12 @@
 @section('page_title')
     {{ __('admin::app.catalog.products.edit-title') }}
 @stop
-
 @section('content')
     <div class="content">
         <?php $locale = request()->get('locale') ?: app()->getLocale(); ?>
         <?php $channel = request()->get('channel') ?: core()->getDefaultChannelCode(); ?>
 
         {!! view_render_event('bagisto.admin.catalog.product.edit.before', ['product' => $product]) !!}
-
         <form method="POST" action="" @submit.prevent="onSubmit" enctype="multipart/form-data">
 
             <div class="page-header">
@@ -171,7 +169,6 @@
             </div>
 
         </form>
-
         {!! view_render_event('bagisto.admin.catalog.product.edit.after', ['product' => $product]) !!}
     </div>
 @stop
@@ -189,7 +186,7 @@
             })
 
             tinymce.init({
-                selector: 'textarea#description, textarea#short_description',
+                selector: 'textarea#description',
                 height: 200,
                 width: "100%",
                 plugins: 'image imagetools media wordcount save fullscreen code',

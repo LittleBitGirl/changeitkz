@@ -133,7 +133,6 @@ class ProductController extends Controller
      */
     public function store()
     {
-        dd($this);
         if (! request()->get('family')
             && ProductType::hasVariants(request()->input('type'))
             && request()->input('sku') != ''
@@ -156,9 +155,7 @@ class ProductController extends Controller
         ]);
 
         $product = $this->productRepository->create(request()->all());
-
         session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Product']));
-
         return redirect()->route($this->_config['redirect'], ['id' => $product->id]);
     }
 
@@ -171,10 +168,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
-
         $categories = $this->categoryRepository->getCategoryTree();
         $inventorySources = $this->inventorySourceRepository->all();
-
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
     }
 
