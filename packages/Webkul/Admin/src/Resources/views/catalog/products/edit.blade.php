@@ -9,6 +9,7 @@
         <?php $channel = request()->get('channel') ?: core()->getDefaultChannelCode(); ?>
 
         {!! view_render_event('bagisto.admin.catalog.product.edit.before', ['product' => $product]) !!}
+
         <form method="POST" action="" @submit.prevent="onSubmit" enctype="multipart/form-data">
 
             <div class="page-header">
@@ -75,23 +76,23 @@
                                 @foreach ($customAttributes as $attribute)
 
                                     <?php
-                                        if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
-                                            continue;
-                                        }
+                                    if ($attribute->code == 'guest_checkout' && !core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
+                                        continue;
+                                    }
 
-                                        $validations = [];
+                                    $validations = [];
 
-                                        if ($attribute->is_required) {
-                                            array_push($validations, 'required');
-                                        }
+                                    if ($attribute->is_required) {
+                                        array_push($validations, 'required');
+                                    }
 
-                                        if ($attribute->type == 'price') {
-                                            array_push($validations, 'decimal');
-                                        }
+                                    if ($attribute->type == 'price') {
+                                        array_push($validations, 'decimal');
+                                    }
 
-                                        array_push($validations, $attribute->validation);
+                                    array_push($validations, $attribute->validation);
 
-                                        $validations = implode('|', array_filter($validations));
+                                    $validations = implode('|', array_filter($validations));
                                     ?>
 
                                     @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
@@ -141,13 +142,10 @@
                                     @endif
 
                                 @endforeach
-
                                 {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.after', ['product' => $product]) !!}
                             </div>
                         </accordian>
-
                         {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.after', ['product' => $product]) !!}
-
                     @endif
 
                 @endforeach
@@ -156,6 +154,7 @@
                   'bagisto.admin.catalog.product.edit_form_accordian.additional_views.before',
                    ['product' => $product])
                 !!}
+
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
 
                     @include ($view)
@@ -170,6 +169,7 @@
 
         </form>
         {!! view_render_event('bagisto.admin.catalog.product.edit.after', ['product' => $product]) !!}
+
     </div>
 @stop
 
