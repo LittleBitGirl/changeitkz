@@ -1,30 +1,74 @@
 .bigger-logo {
-    width: 70px!important;
-    height: 70px!important;
+    width: 70px !important;
+    height: 70px !important;
 }
-.header .header-top div.left-content ul.logo-container li img{
-    max-height: 80px!important;
+
+.header .header-top div.left-content ul.logo-container li img {
+    max-height: 80px !important;
 }
-.header-top{
+
+.header-top {
     margin-bottom: 0px !important;
 }
 
-.filter-container{
+.filter-container {
     text-align: left;
     display: flex;
     box-shadow: none;
     position: relative !important;
 }
-.filter-container.dropdown-list{
+
+.filter-container.dropdown-list {
     background-color: transparent;
 }
-#category-filter{
+
+#category-filter {
     width: 90% !important;
     margin-top: 0;
     margin-bottom: 0;
     height: 38px;
 }
-#filter-control{
+
+#filter-control {
     width: 200px !important;
     margin-bottom: 0;
+}
+
+.slider1-text{
+    font-family: "Noto Sans SC", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 52px;
+    color: #EBE1E1;
+}
+
+.info-list {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.info-item {
+    padding-right: 3%;
+    padding-left: 3%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-item-text {
+    font-family: "Noto Sans SC", sans-serif;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.info-item-image {
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
 }

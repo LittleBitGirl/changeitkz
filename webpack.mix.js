@@ -15,3 +15,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.styles(['resources/assets/css/app.css'], 'public/custom/css/cstm-app.css');
+
+mix.js('resources/assets/js/jquery.min.js', 'public/js/jquery.min.js');
+
+mix.js('resources/assets/js/custom.js', 'public/custom/js/cstm-app.js').extract(['vue']);
