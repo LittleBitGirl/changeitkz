@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <button type='button' id="" class="btn btn-primary btn-lg btn-login" @click="loginCustomer">
+        <button type='button' id="" class="btn btn-black btn-lg btn-login" @click="loginCustomer">
             {{ __('shop::app.customer.login-form.button_title') }}
         </button>
     </div>

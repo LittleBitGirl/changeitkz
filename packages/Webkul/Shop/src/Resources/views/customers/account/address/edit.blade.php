@@ -93,7 +93,7 @@
                     {!! view_render_event('bagisto.shop.customers.account.address.edit_form_controls.after', ['address' => $address]) !!}
 
                     <div class="button-group">
-                        <button class="btn btn-primary btn-lg" type="submit">
+                        <button class="btn btn-black btn-lg" type="submit">
                             {{ __('shop::app.customer.account.address.create.submit') }}
                         </button>
                     </div>

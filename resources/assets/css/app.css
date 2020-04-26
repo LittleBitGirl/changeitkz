@@ -34,7 +34,7 @@
     margin-bottom: 0;
 }
 
-.slider1-text{
+.slider1-text {
     font-family: "Noto Sans SC", sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -71,4 +71,22 @@
     height: 48px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#challenge-list {
+    border-bottom: none;
+}
+
+.tabs li.tab a {
+    color: #979797;
+    border-bottom-color: #979797;
+}
+
+.tabs li.is-active a {
+    color: black;
+    border-bottom-color: black;
+}
+
+.sign-up-text a {
+    color: black;
 }

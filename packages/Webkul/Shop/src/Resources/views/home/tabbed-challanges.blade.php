@@ -1,12 +1,12 @@
 <div class="tabs is-centered">
-    <ul>
+    <ul id="challenge-list">
         @if (app('Webkul\Product\Repositories\ProductRepository')->getFeaturedProducts()->count())
-            <li id="tab-featured" class="is-active" onClick="selectFeatured(event)">
+            <li id="tab-featured" class="is-active tab" onClick="selectFeatured(event)">
                 <a>Рекомендованные</a>
             </li>
         @endif
         @if (app('Webkul\Product\Repositories\ProductRepository')->getNewProducts()->count())
-            <li id="tab-new" onClick="selectNew()">
+            <li id="tab-new" class="tab" onClick="selectNew()">
                 <a>Новые</a>
             </li>
         @endif
