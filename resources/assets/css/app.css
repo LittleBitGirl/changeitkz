@@ -90,3 +90,31 @@
 .sign-up-text a {
     color: black;
 }
+
+.pre-footer.text {
+    font-family: "Noto Sans SC", sans-serif;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    color: black;
+    width: 85%;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+}
+
+.paragraph {
+    margin-bottom: 10px;
+}
+
+.text-section {
+    margin-bottom: 3%;
+}
+
+#whole-catalog {
+    margin-top: 10px;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+}
