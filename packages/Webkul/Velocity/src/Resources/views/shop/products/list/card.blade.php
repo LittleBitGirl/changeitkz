@@ -54,9 +54,7 @@
                     </div>
 
                     <div class="product-price">
-                        {{ __('shop::app.products.you-get') }}
                         @include ('shop::products.price', ['product' => $product])
-                        {{ __('shop::app.products.for-challange') }}
 
                     </div>
 
