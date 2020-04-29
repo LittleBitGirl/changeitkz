@@ -480,6 +480,7 @@ class Core
      */
     public function formatPrice($price, $currencyCode)
     {
+        $price = round($price, 0);
         $code = $this->getCurrentCurrency()->code;
 
         if (is_null($price)) {
@@ -493,13 +494,13 @@ class Core
         $formater = new \NumberFormatter(app()->getLocale(), \NumberFormatter::CURRENCY);
 
         $symbol = $this->getCurrentCurrency()->symbol;
-
+        $formater->setPattern("+#,##0 ".$symbol);
         if ($symbol) {
             if ($this->currencySymbol($currencyCode) == $symbol) {
-                return $formater->formatCurrency($price, $currencyCode);
+                $formater->formatCurrency($price, $currencyCode);
+
             } else {
                 $formater->setSymbol(\NumberFormatter::CURRENCY_SYMBOL, $symbol);
-
                 return $formater->format($price);  // $this->convertPrice($price, $code)
             }
         } else {

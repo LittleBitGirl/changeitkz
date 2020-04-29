@@ -7,37 +7,7 @@ return [
         'route'      => 'admin.dashboard.index',
         'sort'       => 1,
         'icon-class' => 'dashboard-icon',
-    ], [
-        'key'        => 'sales',
-        'name'       => 'admin::app.layouts.sales',
-        'route'      => 'admin.sales.orders.index',
-        'sort'       => 2,
-        'icon-class' => 'sales-icon',
-    ], [
-        'key'        => 'sales.orders',
-        'name'       => 'admin::app.layouts.orders',
-        'route'      => 'admin.sales.orders.index',
-        'sort'       => 1,
-        'icon-class' => '',
-    ], [
-        'key'        => 'sales.shipments',
-        'name'       => 'admin::app.layouts.shipments',
-        'route'      => 'admin.sales.shipments.index',
-        'sort'       => 2,
-        'icon-class' => '',
-    ], [
-        'key'        => 'sales.invoices',
-        'name'       => 'admin::app.layouts.invoices',
-        'route'      => 'admin.sales.invoices.index',
-        'sort'       => 3,
-        'icon-class' => '',
-    ], [
-        'key'        => 'sales.refunds',
-        'name'       => 'admin::app.layouts.refunds',
-        'route'      => 'admin.sales.refunds.index',
-        'sort'       => 4,
-        'icon-class' => '',
-    ], [
+    ],[
         'key'        => 'catalog',
         'name'       => 'admin::app.layouts.catalog',
         'route'      => 'admin.catalog.products.index',
@@ -163,25 +133,7 @@ return [
         'route'      => 'admin.sliders.index',
         'sort'       => 7,
         'icon-class' => '',
-    ], [
-        'key'        => 'settings.taxes',
-        'name'       => 'admin::app.layouts.taxes',
-        'route'      => 'admin.tax-categories.index',
-        'sort'       => 8,
-        'icon-class' => '',
-    ], [
-        'key'        => 'settings.taxes.tax-categories',
-        'name'       => 'admin::app.layouts.tax-categories',
-        'route'      => 'admin.tax-categories.index',
-        'sort'       => 1,
-        'icon-class' => '',
-    ], [
-        'key'        => 'settings.taxes.tax-rates',
-        'name'       => 'admin::app.layouts.tax-rates',
-        'route'      => 'admin.tax-rates.index',
-        'sort'       => 2,
-        'icon-class' => '',
-    ], [
+    ],[
         'key'        => 'promotions',
         'name'       => 'admin::app.layouts.promotions',
         'route'      => 'admin.catalog-rules.index',

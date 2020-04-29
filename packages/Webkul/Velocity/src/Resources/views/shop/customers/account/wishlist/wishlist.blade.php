@@ -13,7 +13,7 @@
         @if (count($items))
             <div class="account-action pull-right">
                 <a
-                    class="remove-decoration theme-btn light"
+                    class="remove-decoration theme-btn black"
                     href="{{ route('customer.wishlist.removeall') }}">
                     {{ __('shop::app.customer.account.wishlist.deleteall') }}
                 </a>

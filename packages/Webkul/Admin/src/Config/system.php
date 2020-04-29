@@ -228,31 +228,31 @@ return [
                 'title' => 'admin::app.admin.emails.notifications.new-admin',
                 'type'  => 'boolean',
             ],
-            [
-                'name'  => 'emails.general.notifications.new-invoice',
-                'title' => 'admin::app.admin.emails.notifications.new-invoice',
-                'type'  => 'boolean',
-            ],
-            [
-                'name'  => 'emails.general.notifications.new-refund',
-                'title' => 'admin::app.admin.emails.notifications.new-refund',
-                'type'  => 'boolean',
-            ],
-            [
-                'name'  => 'emails.general.notifications.new-shipment',
-                'title' => 'admin::app.admin.emails.notifications.new-shipment',
-                'type'  => 'boolean',
-            ],
+//            [
+//                'name'  => 'emails.general.notifications.new-invoice',
+//                'title' => 'admin::app.admin.emails.notifications.new-invoice',
+//                'type'  => 'boolean',
+//            ],
+//            [
+//                'name'  => 'emails.general.notifications.new-refund',
+//                'title' => 'admin::app.admin.emails.notifications.new-refund',
+//                'type'  => 'boolean',
+//            ],
+//            [
+//                'name'  => 'emails.general.notifications.new-shipment',
+//                'title' => 'admin::app.admin.emails.notifications.new-shipment',
+//                'type'  => 'boolean',
+//            ],
             [
                 'name'  => 'emails.general.notifications.new-inventory-source',
                 'title' => 'admin::app.admin.emails.notifications.new-inventory-source',
                 'type'  => 'boolean',
             ],
-            [
-                'name'  => 'emails.general.notifications.cancel-order',
-                'title' => 'admin::app.admin.emails.notifications.cancel-order',
-                'type'  => 'boolean',
-            ],
+//            [
+//                'name'  => 'emails.general.notifications.cancel-order',
+//                'title' => 'admin::app.admin.emails.notifications.cancel-order',
+//                'type'  => 'boolean',
+//            ],
         ],
     ],
 ];

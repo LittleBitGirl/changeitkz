@@ -15,6 +15,7 @@ class OrderItem extends JsonResource
      */
     public function toArray($request)
     {
+        $rounded_price = round($this->price, 0);
         return [
             'id'                                => $this->id,
             'sku'                               => $this->sku,
@@ -29,8 +30,8 @@ class OrderItem extends JsonResource
             'qty_invoiced'                      => $this->qty_invoiced,
             'qty_shipped'                       => $this->qty_shipped,
             'qty_refunded'                      => $this->qty_refunded,
-            'price'                             => $this->price,
-            'formated_price'                    => core()->formatPrice($this->price, $this->order->order_currency_code),
+            'price'                             => $rounded_price,
+            'formated_price'                    => core()->formatPrice($rounded_price, $this->order->order_currency_code),
             'base_price'                        => $this->base_price,
             'formated_base_price'               => core()->formatBasePrice($this->base_price),
             'total'                             => $this->total,

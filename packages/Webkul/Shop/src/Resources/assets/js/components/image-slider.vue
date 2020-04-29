@@ -9,11 +9,6 @@
             </li>
         </ul>
 
-        <div class="slider-control" v-if="images_loaded">
-            <span class="icon dark-left-icon slider-left" @click="changeIndexLeft"></span>
-            <span class="icon light-right-icon slider-right" @click="changeIndexRight"></span>
-        </div>
-
     </div>
 </transition>
 </template>

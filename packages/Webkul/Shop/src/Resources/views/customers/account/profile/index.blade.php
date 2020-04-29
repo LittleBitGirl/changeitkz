@@ -16,12 +16,11 @@
 
             <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
 
-            <span class="account-heading">{{ __('shop::app.customer.account.profile.index.title') }}</span>
+            <span class="account-heading">{{ __('shop::app.customer.account.profile.index.title') }} </span>
 
             <span class="account-action">
                 <a href="{{ route('customer.profile.edit') }}">{{ __('shop::app.customer.account.profile.index.edit') }}</a>
             </span>
-
             <div class="horizontal-rule"></div>
         </div>
 
@@ -42,7 +41,14 @@
                         <td>{{ __('shop::app.customer.account.profile.lname') }}</td>
                         <td>{{ $customer->last_name }}</td>
                     </tr>
-
+                    <tr>
+                        <td>Баллы</td>
+                        <td>{{ $customer->points }} ₱</td>
+                    </tr>
+                    <tr>
+                        <td>Ранг</td>
+                        <td>{{ $customer_rang }} место</td>
+                    </tr>
                     <tr>
                         <td>{{ __('shop::app.customer.account.profile.gender') }}</td>
                         <td>{{ $customer->gender }}</td>

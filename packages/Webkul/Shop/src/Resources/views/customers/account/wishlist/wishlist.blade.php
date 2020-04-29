@@ -68,7 +68,7 @@
                                     <span class="icon trash-icon"></span>
                                 </a>
 
-                                <a href="{{ route('customer.wishlist.move', $item->id) }}" class="btn btn-primary btn-md">
+                                <a href="{{ route('customer.wishlist.move', $item->id) }}" class="btn btn-black btn-md">
                                     {{ __('shop::app.customer.account.wishlist.move-to-cart') }}
                                 </a>
                             </div>

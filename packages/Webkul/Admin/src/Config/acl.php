@@ -21,12 +21,14 @@ return [
         'name'  => 'admin::app.acl.invoices',
         'route' => 'admin.sales.invoices.index',
         'sort'  => 2,
-    ], [
-        'key'   => 'sales.shipments',
-        'name'  => 'admin::app.acl.shipments',
-        'route' => 'admin.sales.shipments.index',
-        'sort'  => 3,
-    ], [
+    ],
+//    [
+//        'key'   => 'sales.shipments',
+//        'name'  => 'admin::app.acl.shipments',
+//        'route' => 'admin.sales.shipments.index',
+//        'sort'  => 3,
+//    ],
+    [
         'key'   => 'catalog',
         'name'  => 'admin::app.acl.catalog',
         'route' => 'admin.catalog.index',

@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="page-action">
-                    <button type="submit" class="btn btn-lg btn-primary">
+                    <button type="submit" class="btn btn-lg btn-black">
                         {{ __('admin::app.cms.pages.create-btn-title') }}
                     </button>
                 </div>

@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="page-action">
-                    <button type="submit" class="btn btn-lg btn-primary">
+                    <button type="submit" class="btn btn-lg btn-black">
                         {{ __('admin::app.sales.refunds.save-btn-title') }}
                     </button>
                 </div>
@@ -309,7 +309,7 @@
             </div>
 
             <div style="width: 100%; display: inline-block">
-                <button type="button" class="btn btn-lg btn-primary" style="float: right" @click="updateQty">
+                <button type="button" class="btn btn-lg btn-black" style="float: right" @click="updateQty">
                     {{ __('admin::app.sales.refunds.update-qty') }}
                 </button>
             </div>

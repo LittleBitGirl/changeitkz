@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="tabs">
+        <div class="tabs is-centered">
             <ul>
                 <li v-for="tab in tabs" :class="{ 'active': tab.isActive }" @click="selectTab(tab)">
                     <a>{{ tab.name }}</a>
