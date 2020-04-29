@@ -3,6 +3,7 @@
 namespace Webkul\Customer\Http\Controllers;
 
 use Hash;
+use Webkul\Customer\Helpers\RangCounter;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Product\Repositories\ProductReviewRepository;
 
@@ -58,8 +59,9 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = $this->customerRepository->find(auth()->guard('customer')->user()->id);
-
-        return view($this->_config['view'], compact('customer'));
+        $rangCounter = new RangCounter();
+        $customer_rang = $rangCounter->getCustomersRang($customer);
+        return view($this->_config['view'], compact('customer', 'customer_rang'));
     }
 
     /**

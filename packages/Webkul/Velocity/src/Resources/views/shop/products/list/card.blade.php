@@ -55,6 +55,7 @@
 
                     <div class="product-price">
                         @include ('shop::products.price', ['product' => $product])
+
                     </div>
 
                     @if( $totalReviews )

@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="page-action">
-                        <button type="submit" class="btn btn-primary btn-lg">
+                        <button type="submit" class="btn btn-black btn-lg">
                             {{ __('admin::app.customers.addresses.save-btn-title') }}
                         </button>
                     </div>

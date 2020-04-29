@@ -15,15 +15,15 @@ body {
 }
 
 * {
-    font-family: $font-montserrat;
+    font-family: $font-noto-sans;
 }
 
 *::-webkit-input-placeholder {
-    font-family: $font-montserrat;
+    font-family: $font-noto-sans;
 }
 
 *::-moz-input-placeholder {
-    font-family: $font-montserrat;
+    font-family: $font-noto-sans;
 }
 
 textarea {
@@ -31,7 +31,7 @@ textarea {
 }
 
 input {
-    font-family: $font-montserrat;
+    font-family: $font-noto-sans;
 }
 
 .btn {
@@ -694,7 +694,7 @@ section.slider-block {
         }
 
         div.slider-control {
-            display: block;
+            display: none;
             cursor: pointer;
             position: absolute;
             user-select: none;
@@ -725,7 +725,7 @@ section.slider-block {
     section.slider-block {
         div.slider-content {
             div.slider-control {
-                display: flex;
+                display: none;
                 justify-content:space-between;
                 bottom: 46%;
                 right: 0%;

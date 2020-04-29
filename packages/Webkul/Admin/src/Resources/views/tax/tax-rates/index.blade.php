@@ -25,7 +25,7 @@
                     </span>
                 </div>
 
-                <a href="{{ route('admin.tax-rates.show') }}" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.tax-rates.show') }}" class="btn btn-lg btn-black">
                     {{ __('admin::app.settings.tax-rates.add-title') }}
                 </a>
             </div>
@@ -58,7 +58,7 @@
                     <span class="control-error" v-if="errors.has('file')">@{{ errors.first('file') }}</span>
                 </div>
 
-                <button type="submit" class="btn btn-lg btn-primary">
+                <button type="submit" class="btn btn-lg btn-black">
                     {{ __('admin::app.export.import') }}
                 </button>
             </form>

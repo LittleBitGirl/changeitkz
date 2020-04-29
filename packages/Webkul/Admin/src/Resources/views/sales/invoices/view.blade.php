@@ -19,7 +19,7 @@
             </div>
 
             <div class="page-action">
-                <a href="{{ route('admin.sales.invoices.print', $invoice->id) }}" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.sales.invoices.print', $invoice->id) }}" class="btn btn-lg btn-black">
                     {{ __('admin::app.sales.invoices.print') }}
                 </a>
             </div>

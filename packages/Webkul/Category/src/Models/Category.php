@@ -2,13 +2,14 @@
 
 namespace Webkul\Category\Models;
 
-use Webkul\Core\Eloquent\TranslatableModel;
-use Kalnoy\Nestedset\NodeTrait;
 use Illuminate\Support\Facades\Storage;
+use Kalnoy\Nestedset\NodeTrait;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Webkul\Category\Contracts\Category as CategoryContract;
 use Webkul\Attribute\Models\AttributeProxy;
+use Webkul\Category\Contracts\Category as CategoryContract;
 use Webkul\Category\Repositories\CategoryRepository;
+use Webkul\Core\Eloquent\TranslatableModel;
+use Webkul\Product\Database\Eloquent\Builder;
 
 /**
  * Class Category
@@ -17,8 +18,7 @@ use Webkul\Category\Repositories\CategoryRepository;
  *
  * @property-read string $url_path maintained by database triggers
  */
-class Category extends TranslatableModel implements CategoryContract
-{
+class Category extends TranslatableModel implements CategoryContract {
     use NodeTrait;
 
     public $translatedAttributes = [
@@ -40,10 +40,17 @@ class Category extends TranslatableModel implements CategoryContract
      */
     public function image_url()
     {
-        if (! $this->image)
+        if (!$this->image)
             return;
 
         return Storage::url($this->image);
+    }
+
+    public function scopeOnlyRu($query)
+    {
+        return $query->with(['translations' => function($query){
+            $query->onlyRu();
+        }]);
     }
 
     /**
@@ -54,7 +61,7 @@ class Category extends TranslatableModel implements CategoryContract
         return $this->image_url();
     }
 
-     /**
+    /**
      * The filterable attributes that belong to the category.
      */
     public function filterableAttributes()
@@ -64,7 +71,7 @@ class Category extends TranslatableModel implements CategoryContract
 
     /**
      * Getting the root category of a category
-     * 
+     *
      * @return Category
      */
     public function getRootCategory(): Category
@@ -105,20 +112,20 @@ class Category extends TranslatableModel implements CategoryContract
      */
     public function findInTree($categoryTree = null): Category
     {
-        if (! $categoryTree) {
+        if (!$categoryTree) {
             $categoryTree = app(CategoryRepository::class)->getVisibleCategoryTree($this->getRootCategory()->id);
         }
 
         $category = $categoryTree->first();
 
-        if (! $category) {
+        if (!$category) {
             throw new NotFoundHttpException('category not found in tree');
         }
 
         if ($category->id === $this->id) {
             return $category;
         }
-        
+
         return $this->findInTree($category->children);
     }
 }

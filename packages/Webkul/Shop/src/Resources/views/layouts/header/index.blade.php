@@ -7,12 +7,27 @@
                         @if ($logo = core()->getCurrentChannel()->logo_url)
                             <img class="logo" src="{{ $logo }}" />
                         @else
-                            <img class="logo" src="{{ bagisto_asset('images/logo.svg') }}" />
+                            <img class="bigger-logo" src="{{ bagisto_asset('images/changeit.png') }}" />
                         @endif
                     </a>
                 </li>
             </ul>
-
+            <ul class="filter-container">
+                <li>
+                    <div id="filter-control" class="control-group">
+                        <select id="category-filter" class="filter-column-select control" data-category="{{$categories = \Webkul\Category\Models\Category::onlyRu()->get()}}">
+                                @foreach($categories as $category)
+                                    @if(isset($category))
+                                        {!! $translation = $category['translations'][0]!!}
+                                        <option value="{{ $translation['slug'] }}">
+                                            {{ $translation['name'] }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                        </select>
+                    </div>
+                </li>
+            </ul>
             <ul class="search-container">
                 <li class="search-group">
                     <form role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">
@@ -94,11 +109,11 @@
                                 </div>
 
                                 <div style="margin-top: 15px;">
-                                    <a class="btn btn-primary btn-md" href="{{ route('customer.session.index') }}" style="color: #ffffff">
+                                    <a class="btn btn-black btn-md" href="{{ route('customer.session.index') }}" style="color: #ffffff">
                                         {{ __('shop::app.header.sign-in') }}
                                     </a>
 
-                                    <a class="btn btn-primary btn-md" href="{{ route('customer.register.index') }}" style="float: right; color: #ffffff">
+                                    <a class="btn btn-black btn-md" href="{{ route('customer.register.index') }}" style="float: right; color: #ffffff">
                                         {{ __('shop::app.header.sign-up') }}
                                     </a>
                                 </div>
@@ -137,18 +152,18 @@
                     @endauth
                 </li>
 
-{{--                {!! view_render_event('bagisto.shop.layout.header.account-item.after') !!}--}}
+                {!! view_render_event('bagisto.shop.layout.header.account-item.after') !!}
 
 
-{{--                {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}--}}
+                {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
 
-{{--                <li class="cart-dropdown-container">--}}
+                <li class="cart-dropdown-container">
 
-{{--                    @include('shop::checkout.cart.mini-cart')--}}
+                    @include('shop::checkout.cart.mini-cart')
 
-{{--                </li>--}}
+                </li>
 
-{{--                {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}--}}
+                {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
 
             </ul>
 
@@ -156,9 +171,9 @@
         </div>
     </div>
 
-    <div class="header-bottom" id="header-bottom">
-        @include('shop::layouts.header.nav-menu.navmenu')
-    </div>
+{{--    <div class="header-bottom" id="header-bottom">--}}
+{{--        @include('shop::layouts.header.nav-menu.navmenu')--}}
+{{--    </div>--}}
 
     <div class="search-responsive mt-10" id="search-responsive">
         <form role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">
@@ -172,7 +187,6 @@
         </form>
     </div>
 </div>
-
 @push('scripts')
     <script>
         $(document).ready(function() {

@@ -15,7 +15,7 @@
         <title>Bagisto Installer</title>
 
         <link rel="icon" sizes="16x16" href="Images/favicon.ico">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" type="text/css" href= "<?php echo $cssUrl; ?> ">
 
