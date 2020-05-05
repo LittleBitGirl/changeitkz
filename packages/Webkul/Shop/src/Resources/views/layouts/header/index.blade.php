@@ -18,8 +18,7 @@
                         <select id="category-filter" class="filter-column-select control" data-category="{{$categories = \Webkul\Category\Models\Category::onlyRu()->get()}}">
                                 @foreach($categories as $category)
                                     @if(isset($category))
-                                        {!! $translation = $category['translations']!!}
-					{!! dd($translation) !}}
+                                        {!! $translation = $category['translations'][0]!!}
                                         <option value="{{ $translation['slug']}}">
                                             {{ $translation['name'] }}
                                         </option>
