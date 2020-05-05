@@ -494,8 +494,8 @@ return [
             'shipping-method' => 'Выберите способ доставки',
             'payment-methods' => 'Выберите способ оплаты',
             'payment-method' => 'Метод оплаты',
-            'summary' => 'Сводка челленджа',
-            'price' => 'Цена',
+            'summary' => 'Сколько поинтов вы получите?',
+            'price' => 'Вы получите',
             'quantity' => 'Количество',
             'contact' => 'Контакт',
             'place-order' => 'Разместить челлендж',
@@ -520,7 +520,7 @@ return [
 
         'total' => [
             'order-summary' => 'Сводка челленджа',
-            'sub-total' => 'челлендж.',
+            'sub-total' => 'челленджей',
             'grand-total' => 'Общий итог',
             'delivery-charges' => 'Стоимость доставки',
             'tax' => 'Налог',

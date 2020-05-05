@@ -17,23 +17,14 @@
         </div>
     @endif
 
-    @if ($cart->base_tax_total)
-        @foreach (Webkul\Tax\Helpers\Tax::getTaxRatesWithAmount($cart, true) as $taxRate => $baseTaxAmount )
-        <div class="item-detail">
-            <label id="taxrate-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ __('shop::app.checkout.total.tax') }} {{ $taxRate }} %</label>
-            <label class="right" id="basetaxamount-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ core()->currency($baseTaxAmount) }}</label>
-        </div>
-        @endforeach
-    @endif
-
-    <div class="item-detail" id="discount-detail" @if ($cart->base_discount_amount && $cart->base_discount_amount > 0) style="display: block;" @else style="display: none;" @endif>
-        <label>
-            {{ __('shop::app.checkout.total.disc-amount') }}
-        </label>
-        <label class="right">
-            -{{ core()->currency($cart->base_discount_amount) }}
-        </label>
-    </div>
+{{--    <div class="item-detail" id="discount-detail" @if ($cart->base_discount_amount && $cart->base_discount_amount > 0) style="display: block;" @else style="display: none;" @endif>--}}
+{{--        <label>--}}
+{{--            {{ __('shop::app.checkout.total.disc-amount') }}--}}
+{{--        </label>--}}
+{{--        <label class="right">--}}
+{{--            -{{ core()->currency($cart->base_discount_amount) }}--}}
+{{--        </label>--}}
+{{--    </div>--}}
 
 
     <div class="payable-amount" id="grand-total-detail">

@@ -48,7 +48,7 @@
                     @include('shop::checkout.onepage.customer-info')
 
                     <div class="button-group">
-                        <button type="button" class="btn btn-lg btn-primary" @click="validateForm('address-form')" :disabled="disable_button" id="checkout-address-continue-button">
+                        <button type="button" class="btn btn-lg btn-black" @click="validateForm('address-form')" :disabled="disable_button" id="checkout-address-continue-button">
                             {{ __('shop::app.checkout.onepage.continue') }}
                         </button>
                     </div>
@@ -58,7 +58,7 @@
                     <shipping-section v-if="current_step == 2" @onShippingMethodSelected="shippingMethodSelected($event)"></shipping-section>
 
                     <div class="button-group">
-                        <button type="button" class="btn btn-lg btn-primary" @click="validateForm('shipping-form')" :disabled="disable_button" id="checkout-shipping-continue-button">
+                        <button type="button" class="btn btn-lg btn-black" @click="validateForm('shipping-form')" :disabled="disable_button" id="checkout-shipping-continue-button">
                             {{ __('shop::app.checkout.onepage.continue') }}
                         </button>
 
@@ -69,7 +69,7 @@
                     <payment-section v-if="current_step == 3" @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
 
                     <div class="button-group">
-                        <button type="button" class="btn btn-lg btn-primary" @click="validateForm('payment-form')" :disabled="disable_button" id="checkout-payment-continue-button">
+                        <button type="button" class="btn btn-lg btn-black" @click="validateForm('payment-form')" :disabled="disable_button" id="checkout-payment-continue-button">
                             {{ __('shop::app.checkout.onepage.continue') }}
                         </button>
                     </div>
@@ -88,7 +88,7 @@
                     </review-section>
 
                     <div class="button-group">
-                        <button type="button" class="btn btn-lg btn-primary" @click="placeOrder()" :disabled="disable_button" id="checkout-place-order-button">
+                        <button type="button" class="btn btn-lg btn-black" @click="placeOrder()" :disabled="disable_button" id="checkout-place-order-button">
                             {{ __('shop::app.checkout.onepage.place-order') }}
                         </button>
                     </div>

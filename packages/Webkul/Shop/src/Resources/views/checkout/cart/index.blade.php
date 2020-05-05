@@ -102,7 +102,7 @@
 
                             <div>
                                 @if ($cart->hasProductsWithQuantityBox())
-                                <button type="submit" class="btn btn-lg btn-primary" id="update_cart_button">
+                                <button type="submit" class="btn btn-lg btn-black" id="update_cart_button">
                                     {{ __('shop::app.checkout.cart.update-cart') }}
                                 </button>
                                 @endif
@@ -138,7 +138,7 @@
                 </p>
 
                 <p style="display: inline-block;">
-                    <a style="display: inline-block;" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-primary">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
+                    <a style="display: inline-block;" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-black">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
                 </p>
             </div>
 
