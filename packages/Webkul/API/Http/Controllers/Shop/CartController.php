@@ -225,4 +225,22 @@ class CartController extends Controller
             'data'    => $cart ? new CartResource($cart) : null,
         ]);
     }
+
+    public function moveToDonelist($id)
+    {
+        Event::dispatch('checkout.cart.item.move-to-donelist.before', $id);
+
+        Cart::moveToDonelist($id);
+
+        Event::dispatch('checkout.cart.item.move-to-donelist.after', $id);
+
+        Cart::collectTotals();
+
+        $cart = Cart::getCart();
+
+        return response()->json([
+            'message' => __('shop::app.checkout.cart.move-to-donelist-success'),
+            'data'    => $cart ? new CartResource($cart) : null,
+        ]);
+    }
 }

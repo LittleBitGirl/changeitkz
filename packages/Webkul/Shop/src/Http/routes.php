@@ -84,6 +84,8 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     //Shop buynow button action
     Route::get('move/wishlist/{id}', 'Webkul\Shop\Http\Controllers\CartController@moveToWishlist')->name('shop.movetowishlist');
 
+    Route::get('move/donelist/{id}', 'Webkul\Shop\Http\Controllers\CartController@moveToDonelist')->name('shop.movetodonelist');
+
     Route::get('/downloadable/download-sample/{type}/{id}', 'Webkul\Shop\Http\Controllers\ProductController@downloadSample')->name('shop.downloadable.download_sample');
 
     // Show Product Review Form
@@ -172,11 +174,17 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             //Customer Wishlist add
             Route::get('wishlist/add/{id}', 'Webkul\Customer\Http\Controllers\WishlistController@add')->name('customer.wishlist.add');
 
+            Route::get('donelist/add/{id}', 'Webkul\Customer\Http\Controllers\DonelistController@add')->name('customer.donelist.add');
+
             //Customer Wishlist remove
             Route::get('wishlist/remove/{id}', 'Webkul\Customer\Http\Controllers\WishlistController@remove')->name('customer.wishlist.remove');
 
+            Route::get('donelist/remove/{id}', 'Webkul\Customer\Http\Controllers\DonelistController@remove')->name('customer.donelist.remove');
+
             //Customer Wishlist remove
             Route::get('wishlist/removeall', 'Webkul\Customer\Http\Controllers\WishlistController@removeAll')->name('customer.wishlist.removeall');
+
+            Route::get('donelist/removeall', 'Webkul\Customer\Http\Controllers\DonelistController@removeAll')->name('customer.donelist.removeall');
 
             //Customer Wishlist move to cart
             Route::get('wishlist/move/{id}', 'Webkul\Customer\Http\Controllers\WishlistController@move')->name('customer.wishlist.move');
@@ -248,6 +256,10 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                 Route::get('wishlist', 'Webkul\Customer\Http\Controllers\WishlistController@index')->defaults('_config', [
                     'view' => 'shop::customers.account.wishlist.wishlist'
                 ])->name('customer.wishlist.index');
+
+                Route::get('donelist', 'Webkul\Customer\Http\Controllers\DonelistController@index')->defaults('_config', [
+                    'view' => 'shop::customers.account.donelist.donelist'
+                ])->name('customer.donelist.index');
 
                 /* Orders route */
                 //Customer orders(listing)

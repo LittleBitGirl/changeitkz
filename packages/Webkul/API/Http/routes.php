@@ -236,15 +236,33 @@ Route::group(['prefix' => 'api'], function ($router) {
             'authorization_required' => true
         ]);
 
+
+        Route::get('donelist', 'ResourceController@index')->defaults('_config', [
+            'repository' => 'Webkul\Customer\Repositories\DonelistRepository',
+            'resource' => 'Webkul\API\Http\Resources\Customer\Donelist',
+            'authorization_required' => true
+        ]);
+
         Route::delete('wishlist/{id}', 'ResourceController@destroy')->defaults('_config', [
             'repository' => 'Webkul\Customer\Repositories\WishlistRepository',
             'resource' => 'Webkul\API\Http\Resources\Customer\Wishlist',
             'authorization_required' => true
         ]);
 
+        Route::delete('donelist/{id}', 'ResourceController@destroy')->defaults('_config', [
+            'repository' => 'Webkul\Customer\Repositories\DonelistRepository',
+            'resource' => 'Webkul\API\Http\Resources\Customer\Donelist',
+            'authorization_required' => true
+        ]);
+
         Route::get('move-to-cart/{id}', 'WishlistController@moveToCart');
 
+        Route::get('mark-undone/{id}', 'DonelistController@moveToCart');
+
         Route::get('wishlist/add/{id}', 'WishlistController@create');
+
+        Route::get('donelist/add/{id}', 'DonelistController@create');
+
 
 
         //Checkout routes
@@ -260,6 +278,9 @@ Route::group(['prefix' => 'api'], function ($router) {
             Route::get('cart/remove-item/{id}', 'CartController@destroyItem');
 
             Route::get('cart/move-to-wishlist/{id}', 'CartController@moveToWishlist');
+
+
+            Route::get('cart/move-to-donelist/{id}', 'CartController@moveToDonelist');
 
             Route::post('save-address', 'CheckoutController@saveAddress');
 
