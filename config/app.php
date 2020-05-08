@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'debug'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -116,8 +116,8 @@ return [
     | Here you may specify the base currency code for your application.
     |
     */
-    
-    'currency' => env('APP_CURRENCY', 'USD'),
+
+    'currency' => env('APP_CURRENCY', 'PNT'),
 
     /*
     |--------------------------------------------------------------------------

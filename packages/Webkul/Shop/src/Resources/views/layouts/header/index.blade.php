@@ -19,7 +19,7 @@
                                 @foreach($categories as $category)
                                     @if(isset($category))
                                         {!! $translation = $category['translations'][0]!!}
-                                        <option value="{{ $translation['slug'] }}">
+                                        <option value="{{ $translation['slug']}}">
                                             {{ $translation['name'] }}
                                         </option>
                                     @endif
