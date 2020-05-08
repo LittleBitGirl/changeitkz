@@ -13,6 +13,7 @@ use Webkul\Tax\Repositories\TaxCategoryRepository;
 use Webkul\Checkout\Models\CartItem;
 use Webkul\Checkout\Models\CartPayment;
 use Webkul\Customer\Repositories\WishlistRepository;
+use Webkul\Customer\Repositories\DonelistRepository;
 use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Arr;
@@ -63,6 +64,13 @@ class Cart
     protected $wishlistRepository;
 
     /**
+     * DonelistRepository instance
+     *
+     * @var \Webkul\Customer\Repositories\DonelistRepository
+     */
+    protected $donelistRepository;
+
+    /**
      * CustomerAddressRepository instance
      *
      * @var \Webkul\Customer\Repositories\CustomerAddressRepository
@@ -88,6 +96,7 @@ class Cart
         ProductRepository $productRepository,
         TaxCategoryRepository $taxCategoryRepository,
         WishlistRepository $wishlistRepository,
+        DonelistRepository $donelistRepository,
         CustomerAddressRepository $customerAddressRepository
     )
     {
@@ -102,6 +111,8 @@ class Cart
         $this->taxCategoryRepository = $taxCategoryRepository;
 
         $this->wishlistRepository = $wishlistRepository;
+
+        $this->donelistRepository = $donelistRepository;
 
         $this->customerAddressRepository = $customerAddressRepository;
     }
@@ -977,6 +988,57 @@ class Cart
                 'product_id'  => $cartItem->product_id,
                 'additional'  => $cartItem->additional,
             ]);
+        }
+
+        $result = $this->cartItemRepository->delete($itemId);
+
+        if (! $cart->items()->count()) {
+            $this->cartRepository->delete($cart->id);
+        }
+
+        $this->collectTotals();
+
+        return true;
+    }
+
+
+    public function moveToDonelist($itemId)
+    {
+        $cart = $this->getCart();
+        $cartItem = $cart->items()->find($itemId);
+        if (! $cartItem) {
+            return false;
+        }
+
+        $donelistItems = $this->donelistRepository->findWhere([
+            'customer_id' => $this->getCurrentCustomer()->user()->id,
+            'product_id'  => $cartItem->product_id,
+        ]);
+
+        $found = false;
+
+        foreach ($donelistItems as $donelistItem) {
+            $options = $donelistItem->item_options;
+
+            if (! $options) {
+                $options = ['product_id' => $donelistItem->product_id];
+            }
+
+            if ($cartItem->product->getTypeInstance()->compareOptions($cartItem->additional, $options)) {
+                $found = true;
+            }
+        }
+        if (! $found) {
+            $this->donelistRepository->create([
+                'channel_id'  => $cart->channel_id,
+                'customer_id' => $this->getCurrentCustomer()->user()->id,
+                'product_id'  => $cartItem->product_id,
+                'additional'  => $cartItem->additional,
+            ]);
+            $itemPrice = $cartItem->price;
+            $user = $this->getCurrentCustomer()->getUser();
+            $user->points += $itemPrice;
+            $user->save();
         }
 
         $result = $this->cartItemRepository->delete($itemId);

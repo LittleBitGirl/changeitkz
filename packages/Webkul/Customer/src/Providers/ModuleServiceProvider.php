@@ -11,5 +11,6 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         \Webkul\Customer\Models\CustomerAddress::class,
         \Webkul\Customer\Models\CustomerGroup::class,
         \Webkul\Customer\Models\Wishlist::class,
+        \Webkul\Customer\Models\Donelist::class,
     ];
 }

@@ -68,22 +68,14 @@
                                         {!! view_render_event('bagisto.shop.checkout.cart.item.quantity.before', ['item' => $item]) !!}
 
                                         <div class="misc">
-                                            @if ($item->product->getTypeInstance()->showQuantityBox() === true)
-                                                <quantity-changer
-                                                    :control-name="'qty[{{$item->id}}]'"
-                                                    quantity="{{$item->quantity}}">
-                                                </quantity-changer>
-                                            @endif
-
                                             <span class="remove">
-                                                <a href="{{ route('shop.checkout.cart.remove', $item->id) }}" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.remove-link') }}</a></span>
-
+                                                <a href="{{ route('shop.checkout.cart.remove', $item->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.remove-link') }}</a></span>
                                             @auth('customer')
                                                 <span class="towishlist">
                                                     @if ($item->parent_id != 'null' ||$item->parent_id != null)
-                                                        <a href="{{ route('shop.movetowishlist', $item->id) }}" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.move-to-wishlist') }}</a>
+                                                        <a href="{{ route('shop.movetodonelist', $item->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
                                                     @else
-                                                        <a href="{{ route('shop.movetowishlist', $item->child->id) }}" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.move-to-wishlist') }}</a>
+                                                        <a href="{{ route('shop.movetodonelist', $item->child->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
                                                     @endif
                                                 </span>
                                             @endauth
@@ -108,16 +100,15 @@
                             <a href="{{ route('shop.home.index') }}" class="link">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
 
                             <div>
+                                @if (! cart()->hasError())
+                                    <a href="{{ route('shop.checkout.onepage.index') }}" class="btn btn-lg btn-black">
+                                        {{ __('shop::app.checkout.cart.mark-as-done-all') }}
+                                    </a>
+                                @endif
                                 @if ($cart->hasProductsWithQuantityBox())
-                                <button type="submit" class="btn btn-lg btn-primary" id="update_cart_button">
+                                <button type="submit" class="btn btn-lg btn-black" id="update_cart_button">
                                     {{ __('shop::app.checkout.cart.update-cart') }}
                                 </button>
-                                @endif
-
-                                @if (! cart()->hasError())
-                                    <a href="{{ route('shop.checkout.onepage.index') }}" class="btn btn-lg btn-primary">
-                                        {{ __('shop::app.checkout.cart.proceed-to-checkout') }}
-                                    </a>
                                 @endif
                             </div>
                         </div>
@@ -151,7 +142,7 @@
                 </p>
 
                 <p style="display: inline-block;">
-                    <a style="display: inline-block;" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-primary">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
+                    <a style="display: inline-block;" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-black">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
                 </p>
             </div>
 

@@ -4,7 +4,7 @@
         <div class="form-header mb-30">
             <span class="checkout-step-heading">{{ __('shop::app.checkout.onepage.billing-address') }}</span>
 
-            <a class="btn btn-lg btn-primary" @click = newBillingAddress()>
+            <a class="btn btn-lg btn-black" @click = newBillingAddress()>
                 {{ __('shop::app.checkout.onepage.new-address') }}
             </a>
         </div>
@@ -69,7 +69,7 @@
 
             @auth('customer')
                 @if(count(auth('customer')->user()->addresses))
-                    <a class="btn btn-lg btn-primary" @click = backToSavedBillingAddress()>
+                    <a class="btn btn-lg btn-black" @click = backToSavedBillingAddress()>
                         {{ __('shop::app.checkout.onepage.back') }}
                     </a>
                 @endif
@@ -254,7 +254,7 @@
             <div class="form-header mb-30">
                 <span class="checkout-step-heading">{{ __('shop::app.checkout.onepage.shipping-address') }}</span>
 
-                <a class="btn btn-lg btn-primary" @click=newShippingAddress()>
+                <a class="btn btn-lg btn-black" @click=newShippingAddress()>
                     {{ __('shop::app.checkout.onepage.new-address') }}
                 </a>
             </div>
@@ -311,7 +311,7 @@
                 <h1>{{ __('shop::app.checkout.onepage.shipping-address') }}</h1>
                 @auth('customer')
                     @if(count(auth('customer')->user()->addresses))
-                        <a class="btn btn-lg btn-primary" @click = backToSavedShippingAddress()>
+                        <a class="btn btn-lg btn-black" @click = backToSavedShippingAddress()>
                             {{ __('shop::app.checkout.onepage.back') }}
                         </a>
                     @endif

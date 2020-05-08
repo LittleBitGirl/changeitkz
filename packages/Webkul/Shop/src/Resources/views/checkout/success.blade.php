@@ -16,7 +16,7 @@
         {{ view_render_event('bagisto.shop.checkout.continue-shopping.before', ['order' => $order]) }}
 
         <div class="misc-controls">
-            <a style="display: inline-block" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-primary">
+            <a style="display: inline-block" href="{{ route('shop.home.index') }}" class="btn btn-lg btn-black">
                 {{ __('shop::app.checkout.cart.continue-shopping') }}
             </a>
         </div>

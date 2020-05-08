@@ -71,7 +71,7 @@
                         <tr>
                             <td> {{ __('shop::app.footer.subscribe-newsletter') }}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('shop.unsubscribe', $customer->email) }}">{{ __('shop::app.subscription.unsubscribe') }} </a>
+                                <a class="btn btn-sm btn-black" href="{{ route('shop.unsubscribe', $customer->email) }}">{{ __('shop::app.subscription.unsubscribe') }} </a>
                             </td>
                         </tr>
                     @endif --}}
@@ -79,7 +79,7 @@
             </table>
 
 
-            <button type="submit" @click="showModal('deleteProfile')" class="btn btn-lg btn-primary mt-10">
+            <button type="submit" @click="showModal('deleteProfile')" class="btn btn-lg btn-black mt-10">
                 {{ __('shop::app.customer.account.address.index.delete') }}
             </button>
 
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="page-action">
-                            <button type="submit"  class="btn btn-lg btn-primary mt-10">
+                            <button type="submit"  class="btn btn-lg btn-black mt-10">
                             {{ __('shop::app.customer.account.address.index.delete') }}
                             </button>
                         </div>

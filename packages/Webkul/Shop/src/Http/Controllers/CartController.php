@@ -4,6 +4,7 @@ namespace Webkul\Shop\Http\Controllers;
 
 use Webkul\Customer\Repositories\WishlistRepository;
 use Webkul\Product\Repositories\ProductRepository;
+use Webkul\Customer\Repositories\DonelistRepository;
 use Webkul\Checkout\Contracts\Cart as CartModel;
 use Illuminate\Support\Facades\Event;
 use Cart;
@@ -24,6 +25,8 @@ class CartController extends Controller
      */
     protected $productRepository;
 
+    protected $donelistRepository;
+
     /**
      * Create a new controller instance.
      *
@@ -33,12 +36,15 @@ class CartController extends Controller
      */
     public function __construct(
         WishlistRepository $wishlistRepository,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
+        DonelistRepository $donelistRepository
     )
     {
-        $this->middleware('customer')->only(['moveToWishlist']);
+        $this->middleware('customer')->only(['moveToWishlist', 'moveToDonelist']);
 
         $this->wishlistRepository = $wishlistRepository;
+
+        $this->donelistRepository = $donelistRepository;
 
         $this->productRepository = $productRepository;
 
@@ -149,6 +155,19 @@ class CartController extends Controller
             session()->flash('success', trans('shop::app.checkout.cart.move-to-wishlist-success'));
         } else {
             session()->flash('warning', trans('shop::app.checkout.cart.move-to-wishlist-error'));
+        }
+
+        return redirect()->back();
+    }
+
+    public function moveToDonelist($id)
+    {
+        $result = Cart::moveToDonelist($id);
+
+        if ($result) {
+            session()->flash('success', trans('shop::app.checkout.cart.move-to-donelist-success'));
+        } else {
+            session()->flash('warning', trans('shop::app.checkout.cart.move-to-donelist-error'));
         }
 
         return redirect()->back();

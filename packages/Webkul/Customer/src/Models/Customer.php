@@ -113,6 +113,15 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject {
     }
 
     /**
+     * Customer's relation with donelist items
+     */
+    public function donelist_items()
+    {
+        return $this->hasMany(DonelistProxy::modelClass(), 'customer_id');
+    }
+
+
+    /**
      * get all cart inactive cart instance of a customer
      */
     public function all_carts()
