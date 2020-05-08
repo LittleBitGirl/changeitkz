@@ -189,6 +189,10 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             //Customer Wishlist move to cart
             Route::get('wishlist/move/{id}', 'Webkul\Customer\Http\Controllers\WishlistController@move')->name('customer.wishlist.move');
 
+            //Customer Donelist move to cart
+            Route::get('donelist/move/{id}', 'Webkul\Customer\Http\Controllers\DonelistController@move')->name('customer.donelist.move');
+
+
             //customer account
             Route::prefix('account')->group(function () {
                 //Customer Dashboard Route

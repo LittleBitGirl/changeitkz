@@ -96,7 +96,7 @@ class Cart
         ProductRepository $productRepository,
         TaxCategoryRepository $taxCategoryRepository,
         WishlistRepository $wishlistRepository,
-        WishlistRepository $donelistRepository,
+        DonelistRepository $donelistRepository,
         CustomerAddressRepository $customerAddressRepository
     )
     {
@@ -1028,7 +1028,6 @@ class Cart
                 $found = true;
             }
         }
-
         if (! $found) {
             $this->donelistRepository->create([
                 'channel_id'  => $cart->channel_id,
@@ -1038,7 +1037,7 @@ class Cart
             ]);
             $itemPrice = $cartItem->price;
             $user = $this->getCurrentCustomer()->getUser();
-            $user->points = $itemPrice;
+            $user->points += $itemPrice;
             $user->save();
         }
 

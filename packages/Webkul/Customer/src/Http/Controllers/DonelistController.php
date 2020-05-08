@@ -57,7 +57,7 @@ class DonelistController extends Controller
      */
     public function index()
     {
-        $donelistItems = $this->donelistRepository->getCustomerWhishlist();
+        $donelistItems = $this->donelistRepository->getCustomerDonelist();
 
         return view($this->_config['view'])->with('items', $donelistItems);
     }
