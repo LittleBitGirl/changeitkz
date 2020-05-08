@@ -43,21 +43,21 @@ jobs:
 #           composer global require hirak/prestissimo
 #           composer install --no-interaction --ansi --no-progress --no-suggest --optimize-autoloader
 
-      - name: Migrate database
-        run: set -e && php artisan migrate --env=testing
+#       - name: Migrate database
+#         run: set -e && php artisan migrate --env=testing
 
-      - name: Execute unit tests
-        run: set -e && vendor/bin/codecept run unit
+#       - name: Execute unit tests
+#         run: set -e && vendor/bin/codecept run unit
 
-      - name: Execute functional tests
-        run: set -e && vendor/bin/codecept run functional
+#       - name: Execute functional tests
+#         run: set -e && vendor/bin/codecept run functional
 
-      - name: Execute trigger tests
-        run: set -e && vendor/bin/codecept run trigger
+#       - name: Execute trigger tests
+#         run: set -e && vendor/bin/codecept run trigger
 
-      - name: Persist test artifacts
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: test_artifacts
-          path: tests/_output
+#       - name: Persist test artifacts
+#         uses: actions/upload-artifact@v1
+#         if: always()
+#         with:
+#           name: test_artifacts
+#           path: tests/_output
