@@ -84,9 +84,8 @@
                 </div>
 
                 <div class="dropdown-footer">
-                    <a href="{{ route('shop.checkout.cart.index') }}">{{ __('shop::app.minicart.view-cart') }}</a>
-
-                    <a class="btn btn-black btn-lg" style="color: white;" href="{{ route('shop.checkout.onepage.index') }}">{{ __('shop::app.minicart.checkout') }}</a>
+                    <a class="btn btn-black btn-sm" style="color: white; margin-left: auto;" href="{{ route('shop.checkout.cart.index') }}">{{ __('shop::app.minicart.view-cart') }}</a>
+{{--                    <a class="btn btn-black btn-lg" style="color: white;" href="{{ route('shop.checkout.onepage.index') }}">{{ __('shop::app.minicart.checkout') }}</a>--}}
                 </div>
             </div>
         </div>
