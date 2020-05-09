@@ -2,6 +2,7 @@
 
 namespace Webkul\Shop\Http\Controllers;
 
+use Webkul\Product\Models\ProductFlat;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Product\Repositories\ProductReviewRepository;
 
@@ -71,10 +72,13 @@ class ReviewController extends Controller
         ]);
 
         $data = request()->all();
-
         if (auth()->guard('customer')->user()) {
-            $data['customer_id'] = auth()->guard('customer')->user()->id;
-            $data['name'] = auth()->guard('customer')->user()->first_name . ' ' . auth()->guard('customer')->user()->last_name;
+            $itemPrice = ProductFlat::where('product_id', $id)->first()->min_price;
+            $user = auth()->guard('customer')->user();
+            $user->points += $itemPrice;
+            $user->save();
+            $data['customer_id'] = $user->id;
+            $data['name'] = $user->first_name . ' ' . $user->last_name;
         }
 
         $data['status'] = 'pending';

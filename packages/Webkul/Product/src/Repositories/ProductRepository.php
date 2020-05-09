@@ -263,7 +263,7 @@ class ProductRepository extends Repository
                             ->where('product_flat.channel', $channel)
                             ->where('product_flat.locale', $locale)
                             ->orderBy('product_id', 'desc');
-        })->paginate(4);
+        })->paginate(24);
 
         return $results;
     }
@@ -288,7 +288,7 @@ class ProductRepository extends Repository
                             ->where('product_flat.channel', $channel)
                             ->where('product_flat.locale', $locale)
                             ->orderBy('product_id', 'desc');
-        })->paginate(4);
+        })->paginate(24);
 
         return $results;
     }

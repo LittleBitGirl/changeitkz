@@ -1031,10 +1031,7 @@ class Cart
                 'product_id'  => $cartItem->product_id,
                 'additional'  => $cartItem->additional,
             ]);
-            $itemPrice = $cartItem->price;
-            $user = $this->getCurrentCustomer()->getUser();
-            $user->points += $itemPrice;
-            $user->save();
+
         } else{
             return false;
         }

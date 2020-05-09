@@ -98,11 +98,11 @@
                             <a href="{{ route('shop.home.index') }}" class="link">{{ __('shop::app.checkout.cart.continue-shopping') }}</a>
 
                             <div>
-                                @if (! cart()->hasError())
-                                    <a href="{{ route('shop.checkout.onepage.index') }}" class="btn btn-lg btn-black">
-                                        {{ __('shop::app.checkout.cart.mark-as-done-all') }}
-                                    </a>
-                                @endif
+{{--                                @if (! cart()->hasError())--}}
+{{--                                    <a href="{{ route('shop.checkout.onepage.index') }}" class="btn btn-lg btn-black">--}}
+{{--                                        {{ __('shop::app.checkout.cart.mark-as-done-all') }}--}}
+{{--                                    </a>--}}
+{{--                                @endif--}}
                                 @if ($cart->hasProductsWithQuantityBox())
                                 <button type="submit" class="btn btn-lg btn-black" id="update_cart_button">
                                     {{ __('shop::app.checkout.cart.update-cart') }}
