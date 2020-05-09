@@ -79,6 +79,8 @@ $('#tabs').closest('.tabs').addClass('is-centered'); // tabs = Vue.component('ta
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(/*! /mnt/c/Users/mary_/Desktop/-/web/resources/assets/js/custom.js */"./resources/assets/js/custom.js");
+
 
 /***/ })
 

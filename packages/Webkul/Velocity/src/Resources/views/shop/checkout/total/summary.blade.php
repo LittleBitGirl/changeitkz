@@ -46,7 +46,7 @@
 
     <div class="row">
         <a
-            href="{{ route('shop.checkout.onepage.index') }}"
+            href="{{ route('shop.movetodonelist') }}"
             class="theme-btn text-uppercase col-12 remove-decoration fw6 text-center">
             {{ __('velocity::app.checkout.proceed') }}
         </a>

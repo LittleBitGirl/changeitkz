@@ -4,7 +4,6 @@
 
 @if ($cart)
     <?php $items = $cart->items; ?>
-
     <div class="dropdown-toggle">
         <a class="cart-link" href="{{ route('shop.checkout.cart.index') }}">
             <span class="icon cart-icon"></span>
@@ -68,17 +67,16 @@
 
 
                                 {!! view_render_event('bagisto.shop.checkout.cart-mini.item.price.before', ['item' => $item]) !!}
-
-                                <div class="item-price"><b>{{ core()->currency($item->base_total) }}</b></div>
+                                <div class="item-price"><b>{{ core()->currency($item->base_price) }}</b></div>
 
                                 {!! view_render_event('bagisto.shop.checkout.cart-mini.item.price.after', ['item' => $item]) !!}
 
 
-                                {!! view_render_event('bagisto.shop.checkout.cart-mini.item.quantity.before', ['item' => $item]) !!}
+{{--                                {!! view_render_event('bagisto.shop.checkout.cart-mini.item.quantity.before', ['item' => $item]) !!}--}}
 
-                                <div class="item-qty">Quantity - {{ $item->quantity }}</div>
+{{--                                <div class="item-qty">Quantity - {{ $item->quantity }}</div>--}}
 
-                                {!! view_render_event('bagisto.shop.checkout.cart-mini.item.quantity.after', ['item' => $item]) !!}
+{{--                                {!! view_render_event('bagisto.shop.checkout.cart-mini.item.quantity.after', ['item' => $item]) !!}--}}
                             </div>
                         </div>
 

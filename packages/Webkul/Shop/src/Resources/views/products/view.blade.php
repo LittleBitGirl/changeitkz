@@ -109,19 +109,19 @@
         </form>
     </script>
 
-    <script type="text/x-template" id="quantity-changer-template">
-        <div class="quantity control-group" :class="[errors.has(controlName) ? 'has-error' : '']">
-            <label class="required">{{ __('shop::app.products.quantity') }}</label>
+{{--    <script type="text/x-template" id="quantity-changer-template">--}}
+{{--        <div class="quantity control-group" :class="[errors.has(controlName) ? 'has-error' : '']">--}}
+{{--            <label class="required">{{ __('shop::app.products.quantity') }}</label>--}}
 
-            <button type="button" class="decrease" @click="decreaseQty()">-</button>
+{{--            <button type="button" class="decrease" @click="decreaseQty()">-</button>--}}
 
-            <input :name="controlName" class="control" :value="qty" :v-validate="validations" data-vv-as="&quot;{{ __('shop::app.products.quantity') }}&quot;" readonly>
+{{--            <input :name="controlName" class="control" :value="qty" :v-validate="validations" data-vv-as="&quot;{{ __('shop::app.products.quantity') }}&quot;" readonly>--}}
 
-            <button type="button" class="increase" @click="increaseQty()">+</button>
+{{--            <button type="button" class="increase" @click="increaseQty()">+</button>--}}
 
-            <span class="control-error" v-if="errors.has(controlName)">@{{ errors.first(controlName) }}</span>
-        </div>
-    </script>
+{{--            <span class="control-error" v-if="errors.has(controlName)">@{{ errors.first(controlName) }}</span>--}}
+{{--        </div>--}}
+{{--    </script>--}}
 
     <script>
 

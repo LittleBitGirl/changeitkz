@@ -237,7 +237,6 @@ class CartController extends Controller
         Cart::collectTotals();
 
         $cart = Cart::getCart();
-
         return response()->json([
             'message' => __('shop::app.checkout.cart.move-to-donelist-success'),
             'data'    => $cart ? new CartResource($cart) : null,

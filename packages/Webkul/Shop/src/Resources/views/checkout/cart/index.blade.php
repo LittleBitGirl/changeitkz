@@ -69,13 +69,13 @@
 
                                         <div class="misc">
                                             <span class="remove">
-                                                <a href="{{ route('shop.checkout.cart.remove', $item->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.remove-link') }}</a></span>
+                                                <a href="{{ route('shop.checkout.cart.remove', $item->id) }}" class="btn btn-sm btn-black">{{ __('shop::app.checkout.cart.remove-link') }}</a></span>
                                             @auth('customer')
                                                 <span class="towishlist">
                                                     @if ($item->parent_id != 'null' ||$item->parent_id != null)
-                                                        <a href="{{ route('shop.movetodonelist', $item->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
+                                                        <a href="{{ route('shop.movetodonelist', $item->id) }}" class="btn btn-sm btn-black">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
                                                     @else
-                                                        <a href="{{ route('shop.movetodonelist', $item->child->id) }}" class="btn btn-sm btn-black" onclick="removeLink('{{ __('shop::app.checkout.cart.cart-remove-action') }}')">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
+                                                        <a href="{{ route('shop.movetodonelist', $item->child->id) }}" class="btn btn-sm btn-black">{{ __('shop::app.checkout.cart.mark-as-done') }}</a>
                                                     @endif
                                                 </span>
                                             @endauth
@@ -122,7 +122,7 @@
 
                     @include('shop::checkout.total.summary', ['cart' => $cart])
 
-                    <coupon-component></coupon-component>
+{{--                    <coupon-component></coupon-component>--}}
 
                     {!! view_render_event('bagisto.shop.checkout.cart.summary.after', ['cart' => $cart]) !!}
                 </div>

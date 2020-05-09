@@ -3,9 +3,9 @@
 
     <div class="item-detail">
         <label>
+            {{ __('shop::app.checkout.total.for') }}
             {{ intval($cart->items_qty) }}
-            {{ __('shop::app.checkout.total.sub-total') }}
-            {{ __('shop::app.checkout.total.price') }}
+            {{ __('shop::app.checkout.total.you-will-get') }}
         </label>
         <label class="right">{{ core()->currency($cart->base_sub_total) }}</label>
     </div>

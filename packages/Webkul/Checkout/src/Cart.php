@@ -7,6 +7,7 @@ use Webkul\Checkout\Repositories\CartRepository;
 use Webkul\Checkout\Repositories\CartItemRepository;
 use Webkul\Checkout\Repositories\CartAddressRepository;
 use Webkul\Customer\Models\CustomerAddress;
+use Webkul\Product\Models\Product;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Tax\Helpers\Tax;
 use Webkul\Tax\Repositories\TaxCategoryRepository;
@@ -389,8 +390,8 @@ class Cart
 
                     $this->cartItemRepository->update([
                         'quantity'          => $newQuantity,
-                        'total'             => core()->convertPrice($cartItem->price * $newQuantity),
-                        'base_total'        => $cartItem->price * $newQuantity,
+                        'total'             => core()->convertPrice($cartItem->price),
+                        'base_total'        => $cartItem->price,
                         'total_weight'      => $cartItem->weight * $newQuantity,
                         'base_total_weight' => $cartItem->weight * $newQuantity,
                     ], $cartItem->id);
@@ -607,11 +608,7 @@ class Cart
             $cart->base_discount_amount += $shipping->base_discount_amount;
         }
 
-        $quantities = 0;
-
-        foreach ($cart->items as $item) {
-            $quantities = $quantities + $item->quantity;
-        }
+        $quantities = $cart->items()->count();
 
         $cart->items_count = $cart->items->count();
 
@@ -650,8 +647,8 @@ class Cart
                 $this->cartItemRepository->update([
                     'price'      => core()->convertPrice($price),
                     'base_price' => $price,
-                    'total'      => core()->convertPrice($price * $item->quantity),
-                    'base_total' => $price * $item->quantity,
+                    'total'      => core()->convertPrice($price),
+                    'base_total' => $price,
                 ], $item->id);
             }
 
@@ -1005,21 +1002,21 @@ class Cart
     public function moveToDonelist($itemId)
     {
         $cart = $this->getCart();
-        $cartItem = $cart->items()->find($itemId);
-        if (! $cartItem) {
-            return false;
+        if(! $cart->items()->find($itemId)){
+            $cartItem = Product::find($itemId);
+            $fromCart = false;
+        } else{
+            $cartItem = $cart->items()->find($itemId);
+            $fromCart = true;
         }
 
         $donelistItems = $this->donelistRepository->findWhere([
             'customer_id' => $this->getCurrentCustomer()->user()->id,
             'product_id'  => $cartItem->product_id,
         ]);
-
         $found = false;
-
         foreach ($donelistItems as $donelistItem) {
             $options = $donelistItem->item_options;
-
             if (! $options) {
                 $options = ['product_id' => $donelistItem->product_id];
             }
@@ -1039,9 +1036,12 @@ class Cart
             $user = $this->getCurrentCustomer()->getUser();
             $user->points += $itemPrice;
             $user->save();
+        } else{
+            return false;
         }
-
-        $result = $this->cartItemRepository->delete($itemId);
+        if($fromCart){
+            $result = $this->cartItemRepository->delete($itemId);
+        }
 
         if (! $cart->items()->count()) {
             $this->cartRepository->delete($cart->id);
