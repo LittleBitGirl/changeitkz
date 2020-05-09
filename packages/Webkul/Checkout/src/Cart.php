@@ -1002,7 +1002,8 @@ class Cart
     public function moveToDonelist($itemId)
     {
         $cart = $this->getCart();
-        if(! $cart->items()->find($itemId)){
+        if(!$cart || !$cart->items()->find($itemId)){
+            $cart = $this->create([]);
             $cartItem = Product::find($itemId);
             $fromCart = false;
         } else{
