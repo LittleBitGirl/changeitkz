@@ -1009,7 +1009,6 @@ class Cart
             $cartItem = $cart->items()->find($itemId);
             $fromCart = true;
         }
-
         $donelistItems = $this->donelistRepository->findWhere([
             'customer_id' => $this->getCurrentCustomer()->user()->id,
             'product_id'  => $cartItem->product_id,

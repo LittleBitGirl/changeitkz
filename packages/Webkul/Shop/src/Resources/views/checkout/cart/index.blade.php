@@ -22,7 +22,6 @@
                                 @php
                                     $productBaseImage = $item->product->getTypeInstance()->getBaseImage($item);
                                 @endphp
-
                                 <div class="item mt-5">
                                     <div class="item-image" style="margin-right: 15px;">
                                         <a href="{{ route('shop.productOrCategory.index', $item->product->url_key) }}"><img src="{{ $productBaseImage['medium_image_url'] }}" /></a>
@@ -54,7 +53,6 @@
 
                                         @if (isset($item->additional['attributes']))
                                             <div class="item-options">
-
                                                 @foreach ($item->additional['attributes'] as $attribute)
                                                     <b>{{ $attribute['attribute_name'] }} : </b>{{ $attribute['option_label'] }}</br>
                                                 @endforeach
