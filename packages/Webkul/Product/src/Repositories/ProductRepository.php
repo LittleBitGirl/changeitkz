@@ -257,8 +257,8 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
-                            ->addSelect('product_categories.category_id')
-                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
+//                            ->addSelect('product_categories.category_id')
+//                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.new', 1)
@@ -280,11 +280,10 @@ class ProductRepository extends Repository
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
             $locale = request()->get('locale') ?: app()->getLocale();
-
             return $query->distinct()
                             ->addSelect('product_flat.*')
-                            ->addSelect('product_categories.category_id')
-                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
+//                            ->addSelect('product_categories.category_id')
+//                            ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.featured', 1)
