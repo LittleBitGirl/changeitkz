@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.products.list.card.before', ['product' => $product]) !!}
 
-<div class="product-card">
+<div class="product-card {{'category-'.$product->category_id}}">
 
     @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 

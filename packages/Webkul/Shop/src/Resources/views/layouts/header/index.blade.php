@@ -15,15 +15,19 @@
             <ul class="filter-container">
                 <li>
                     <div id="filter-control" class="control-group">
-                        <select id="category-filter" class="filter-column-select control" data-category="{{$categories = \Webkul\Category\Models\Category::onlyRu()->get()}}">
-                                @foreach($categories as $category)
-                                    @if(isset($category))
-                                        {!! $translation = $category['translations'][0]!!}
-                                        <option value="{{ $translation['slug']}}">
-                                            {{ $translation['name'] }}
-                                        </option>
-                                    @endif
-                                @endforeach
+                        <select id="category-filter" onchange="filterCategory(event)" class="filter-column-select control category-filter">
+                            <option value="all" selected="selected">
+                                Все
+                            </option>
+                            {!! $categories = \Webkul\Category\Models\Category::onlyRu()->get() !!}
+                            @foreach($categories as $category)
+                                @if(isset($category))
+                                    {!! $translation = $category['translations'][0]!!}
+                                    <option value="{{$category->id}}">
+                                        {{ $translation['name'] }}
+                                    </option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                 </li>
@@ -188,6 +192,17 @@
     </div>
 </div>
 @push('scripts')
+    <script type="text/javascript">
+        function filterCategory(event){
+            id = $('.category-filter').children(':selected').val();
+            if(id !== 'all'){
+                $('.product-card').hide();
+                $('.category-'+id).show();
+            } else{
+                $('.product-card').show();
+            }
+        }
+    </script>
     <script>
         $(document).ready(function() {
 

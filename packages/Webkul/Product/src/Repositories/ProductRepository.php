@@ -257,6 +257,8 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
+                            ->addSelect('product_categories.category_id')
+                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.new', 1)
@@ -264,7 +266,6 @@ class ProductRepository extends Repository
                             ->where('product_flat.locale', $locale)
                             ->orderBy('product_id', 'desc');
         })->paginate(24);
-
         return $results;
     }
 
@@ -282,6 +283,8 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
+                            ->addSelect('product_categories.category_id')
+                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.featured', 1)
