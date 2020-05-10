@@ -8,7 +8,7 @@
     }
     setInterval(makeScroll, 7000);
 
-    $('.show-content').click(function () {
+    $('.show').click(function () {
         console.log('happy');
         window.location.href = {!! $sliderData[1]['slider_path'] !!}
     });

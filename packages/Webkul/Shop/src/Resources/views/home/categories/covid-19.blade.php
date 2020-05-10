@@ -1,5 +1,5 @@
 <div class="featured-heading center-block" style="text-align: center; font-size: large;">
-    Подходящие вызовы на время карантина<br/>
+    Подходящие челленджи на время карантина<br/>
 
     <span class="featured-seperator" style="color:lightgrey;">____________</span>
 </div>
