@@ -63,6 +63,16 @@
     color: #EBE1E1;
 }
 
+.slider2-text {
+    font-family: "Noto Sans SC", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 52px;
+    color: black;
+}
+
+
 .info-list {
     width: 90%;
     margin-left: 5%;
@@ -138,3 +148,4 @@
     text-align: center;
     text-transform: uppercase;
 }
+
