@@ -24,6 +24,7 @@ return [
     'home' => [
         'page-title' => config('app.name') . ' - Главная',
         'featured-products' => 'Рекомендуемые челленджи',
+        'all-products' => 'Весь каталог челленджей',
         'new-products' => 'Новые челленджи',
         'verify-email' => 'Подтвердить свою учетную запись электронной почты',
         'resend-verify-email' => 'Повторно отправить письмо подтверждения'
