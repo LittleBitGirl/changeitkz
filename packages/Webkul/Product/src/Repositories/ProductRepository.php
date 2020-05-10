@@ -266,7 +266,7 @@ class ProductRepository extends Repository
                             ->where('product_flat.channel', $channel)
                             ->where('product_flat.locale', $locale)
                             ->orderBy('product_id', 'desc');
-        })->paginate(24);
+        })->withCategoryId()->paginate(24);
         return $results;
     }
 
@@ -310,7 +310,7 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
-                            ->leftJoin('product_categories')
+//                            ->leftJoin('product_categories')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.channel', $channel)
