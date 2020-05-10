@@ -3,10 +3,10 @@
 namespace Webkul\Product\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Webkul\Category\Models\Category;
 use Webkul\Product\Contracts\ProductFlat as ProductFlatContract;
 
-class ProductFlat extends Model implements ProductFlatContract
-{
+class ProductFlat extends Model implements ProductFlatContract {
     protected $table = 'product_flat';
 
     protected $guarded = [
@@ -26,6 +26,12 @@ class ProductFlat extends Model implements ProductFlatContract
     {
         return $this->product->getTypeInstance();
     }
+
+    public function scopeWithCategoryId($query)
+    {
+        return $query->with('product.categories');
+    }
+
 
     /**
      * Get the product attribute family that owns the product.
@@ -199,7 +205,7 @@ class ProductFlat extends Model implements ProductFlatContract
      * Retrieve product attributes
      *
      * @param Group $group
-     * @param bool  $skipSuperAttribute
+     * @param bool $skipSuperAttribute
      * @return Collection
      */
     public function getEditableAttributes($group = null, $skipSuperAttribute = true)

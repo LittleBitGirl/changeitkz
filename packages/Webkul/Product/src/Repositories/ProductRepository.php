@@ -257,7 +257,8 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
-//                            ->addSelect('product_categories.category_id')
+                            ->selectRaw('MAX(product_categories.category_id) category_id')
+                            ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
 //                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
@@ -280,17 +281,16 @@ class ProductRepository extends Repository
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
             $locale = request()->get('locale') ?: app()->getLocale();
+
             return $query->distinct()
                             ->addSelect('product_flat.*')
-//                            ->addSelect('product_categories.category_id')
-//                            ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.featured', 1)
                             ->where('product_flat.channel', $channel)
                             ->where('product_flat.locale', $locale)
                             ->orderBy('product_id', 'desc');
-        })->paginate(24);
+        })->withCategoryId()->paginate(24);
 
         return $results;
     }
@@ -310,6 +310,7 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
+                            ->leftJoin('product_categories')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.channel', $channel)
