@@ -9,7 +9,7 @@
     }
     setInterval(makeScroll, 7000);
     $(document).ready(function () {
-        $("#covid").closest('li').click(function () {
+        $(".click-to").click(function () {
            window.location.href = '/page/covid-19'
         });
     });
