@@ -257,9 +257,6 @@ class ProductRepository extends Repository
 
             return $query->distinct()
                             ->addSelect('product_flat.*')
-                            ->selectRaw('MAX(product_categories.category_id) category_id')
-                            ->leftJoin('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
-//                            ->join('product_categories', 'product_flat.product_id', '=', 'product_categories.product_id')
                             ->where('product_flat.status', 1)
                             ->where('product_flat.visible_individually', 1)
                             ->where('product_flat.new', 1)
