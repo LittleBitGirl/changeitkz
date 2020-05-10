@@ -72,7 +72,10 @@
     color: black;
 }
 
-
+.click-to{
+    width: 100%;
+    height: 100%;
+}
 .info-list {
     width: 90%;
     margin-left: 5%;

@@ -5,11 +5,13 @@
 <script type="text/javascript">
     function makeScroll() {
         $('.slider-right').click();
+
     }
     setInterval(makeScroll, 7000);
-
-    $('.show').click(function () {
-        console.log('happy');
-        window.location.href = {!! $sliderData[1]['slider_path'] !!}
+    $(document).ready(function () {
+        $("#covid").closest('li').click(function () {
+           window.location.href = '/page/covid-19'
+        });
     });
+
 </script>

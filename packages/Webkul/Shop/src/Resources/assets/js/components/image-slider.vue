@@ -4,7 +4,9 @@
 
         <ul class="slider-images">
             <li v-for="(image, index) in images" :key="index" v-bind:class="{'show': index==currentIndex}">
-                <img class="slider-item" :src="image" />
+                <a :href="slider.path">
+                    <img class="slider-item" :src="image" />
+                </a>
                 <div class="show-content" v-bind:class="{'show': index==currentIndex}" :key="index" v-html="content[index]"></div>
             </li>
         </ul>
@@ -36,7 +38,6 @@ export default {
             content: [],
             current: false,
             images_loaded: false,
-
         };
     },
 
