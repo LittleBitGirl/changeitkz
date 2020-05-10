@@ -7,10 +7,6 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function filterCategory() {
-  console.log('hope');
-}
-
 $('#tabs').closest('.tabs').addClass('is-centered');
 
 /***/ }),

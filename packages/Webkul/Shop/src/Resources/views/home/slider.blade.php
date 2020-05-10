@@ -6,6 +6,11 @@
     function makeScroll() {
         $('.slider-right').click();
     }
-
     setInterval(makeScroll, 7000);
+{{--    {{dd($sliderData)}}--}}
+{{--    // console.log($('.slider-images li.show'));--}}
+    $('.slider-images li').click(function () {
+        // console.log(this);
+        window.location.href = {!! $sliderData[1]['slider_path'] !!}
+    });
 </script>
