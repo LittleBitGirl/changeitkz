@@ -41,6 +41,11 @@ class DownloadableProductController extends Controller
         return view($this->_config['view']);
     }
 
+    public function create()
+    {
+        return view($this->_config['view']);
+    }
+
     /**
      * Download the for the specified resource.
      *

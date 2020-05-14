@@ -8,10 +8,4 @@
 
     }
     setInterval(makeScroll, 7000);
-    $(document).ready(function () {
-        $(".click-to").click(function () {
-           window.location.href = '/page/covid-19'
-        });
-    });
-
 </script>
