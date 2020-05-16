@@ -70,9 +70,20 @@
     font-size: 34px;
     line-height: 52px;
     color: black;
+    text-align: center;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
+.hyperlink{
+    width: 100%;
+    height: 100%;
+}
+.click-to{
+    width: 100%;
+    height: 100%;
+}
 .info-list {
     width: 90%;
     margin-left: 5%;
@@ -149,3 +160,13 @@
     text-transform: uppercase;
 }
 
+
+@charset "utf-8"
+/*! bulma.io v0.8.2 | MIT License | github.com/jgthms/bulma */
+@import "sass/utilities/_all"
+@import "sass/base/_all"
+@import "sass/elements/_all"
+@import "sass/form/_all"
+@import "sass/components/_all"
+@import "sass/grid/_all"
+@import "sass/layout/_all"

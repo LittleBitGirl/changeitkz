@@ -26,12 +26,14 @@
         "sass-loader": "^8.0.2",
         "style-loader": "^1.2.1",
         "vue": "^2.6.11",
+        "vue-loader": "^15.9.2",
         "vue-template-compiler": "^2.6.11",
         "webpack": "^4.43.0"
     },
     "dependencies": {
         "bulma": "^0.8.2",
         "css-loader": "^3.5.3",
+        "electron": "^8.3.0",
         "opencollective": "^1.0.3",
         "opencollective-postinstall": "^2.0.1"
     },

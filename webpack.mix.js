@@ -14,6 +14,9 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
-mix.styles(['resources/assets/css/app.css'], 'public/custom/css/cstm-app.css');
+mix.styles(['resources/assets/css/app.css', './node_modules/bulma/bulma.sass'], 'public/custom/css/cstm-app.css');
 
 mix.js('resources/assets/js/custom.js', 'public/custom/js/cstm-app.js').extract(['vue']);
+
+mix.js('resources/assets/js/offer.js',
+    'public/custom/js/offer.js');

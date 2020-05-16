@@ -275,10 +275,10 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                 Route::get('downloadable-products', 'Webkul\Shop\Http\Controllers\DownloadableProductController@index')->defaults('_config', [
                     'view' => 'shop::customers.account.downloadable_products.index'
                 ])->name('customer.downloadable_products.index');
-
-                Route::get('create-offer', 'Webkul\Shop\Http\Controllers\DownloadableProductController@create')->defaults('_config', [
-                    'view' => 'shop::customers.account.downloadable_products.create'
-                ])->name('customer.downloadable_products.create');
+//
+//                Route::get('create-offer', 'Webkul\Shop\Http\Controllers\DownloadableProductController@create')->defaults('_config', [
+//                    'view' => 'shop::customers.account.downloadable_products.create'
+//                ])->name('customer.downloadable_products.create');
 
 
                 //Customer downloadable products(listing)
