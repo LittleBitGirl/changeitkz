@@ -273,12 +273,13 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
                 //Customer downloadable products(listing)
                 Route::get('downloadable-products', 'Webkul\Shop\Http\Controllers\DownloadableProductController@index')->defaults('_config', [
-                    'view' => 'shop::customers.account.downloadable_products.index'
-                ])->name('customer.downloadable_products.index');
-//
-//                Route::get('create-offer', 'Webkul\Shop\Http\Controllers\DownloadableProductController@create')->defaults('_config', [
-//                    'view' => 'shop::customers.account.downloadable_products.create'
-//                ])->name('customer.downloadable_products.create');
+                    'view' => 'shop::customers.account.offer.index'
+                ])->name('customer.offer.index');
+
+                Route::post('create-offer', 'Webkul\Product\Http\Controllers\OfferController@create')
+                    ->name('customer.offer.create');
+                Route::get('delete/{id}', 'Webkul\Product\Http\Controllers\OfferController@delete')
+                    ->name('customer.offer.delete');
 
 
                 //Customer downloadable products(listing)

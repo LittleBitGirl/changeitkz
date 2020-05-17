@@ -117,7 +117,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('customer.downloadable_products.index') }}" class="unset">
+                                        <a href="{{ route('customer.offer.index') }}" class="unset">
                                             <i class="icon downloadables text-down-3"></i>
                                             <span>{{ __('velocity::app.shop.general.downloadables') }}</span>
                                         </a>

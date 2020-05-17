@@ -29,7 +29,7 @@ return [
     ], [
         'key'   => 'account.downloadables',
         'name'  => 'shop::app.layouts.downloadable-products',
-        'route' => 'customer.downloadable_products.index',
+        'route' => 'customer.offer.index',
         'sort'  => 6,
     ]
 ];

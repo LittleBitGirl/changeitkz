@@ -68,7 +68,7 @@ class DownloadableProductController extends Controller
 
             session()->flash('warning', trans('shop::app.customer.account.downloadable_products.download-error'));
 
-            return redirect()->route('customer.downloadable_products.index');
+            return redirect()->route('customer.offer.index');
         }
 
         $remainingDownloads = $downloadableLinkPurchased->download_bought - ($downloadableLinkPurchased->download_used + 1);

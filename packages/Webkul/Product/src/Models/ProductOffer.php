@@ -9,12 +9,14 @@ use Webkul\Product\Contracts\ProductOffer as ProductOfferContract;
 
 class ProductOffer extends Model implements ProductOfferContract
 {
+    protected $table = 'offers';
     protected $fillable = [
         'name',
         'description',
         'info',
         'status',
         'author_id',
+        'image_path'
     ];
 
     /**
