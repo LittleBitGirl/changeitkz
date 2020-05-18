@@ -108,6 +108,10 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop.products.index'
     ])->name('shop.product.file.download');
 
+    Route::get('rating', 'Webkul\Shop\Http\Controllers\RatingController@index')->defaults('_config', [
+        'view' => 'shop::customers.rating.index'
+    ])->name('customer.rating.index');
+
     //customer routes starts here
     Route::prefix('customer')->group(function () {
         // forgot Password Routes
@@ -170,6 +174,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             Route::get('logout', 'Webkul\Customer\Http\Controllers\SessionController@destroy')->defaults('_config', [
                 'redirect' => 'customer.session.index'
             ])->name('customer.session.destroy');
+
 
             //Customer Wishlist add
             Route::get('wishlist/add/{id}', 'Webkul\Customer\Http\Controllers\WishlistController@add')->name('customer.wishlist.add');

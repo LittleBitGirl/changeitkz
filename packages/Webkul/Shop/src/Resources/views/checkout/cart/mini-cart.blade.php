@@ -5,7 +5,7 @@
 @if ($cart)
     <?php $items = $cart->items; ?>
     <div class="dropdown-toggle">
-        <a class="cart-link" href="{{ route('shop.checkout.cart.index') }}">
+        <a class="cart-link" href="{{ route('customer.rating.index') }}">
             <span class="icon cart-icon"></span>
         </a>
 

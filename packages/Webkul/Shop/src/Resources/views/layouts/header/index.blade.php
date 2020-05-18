@@ -163,7 +163,15 @@
 
                 <li class="cart-dropdown-container">
 
-                    @include('shop::checkout.cart.mini-cart')
+{{--                    @include('shop::checkout.cart.mini-cart')--}}
+                    <a class="cart-link" href="/page/rating">
+                        <span class="icon cart-icon"></span>
+
+                        <span class="name">
+                            {{ __('shop::app.header.rating') }}
+    {{--                            <span class="count"> ({{ $cart->items->count() }})</span>--}}
+                        </span>
+                    </a>
 
                 </li>
 
