@@ -1,0 +1,22 @@
+.card-img-top{
+    width: 160px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 109.5px;
+}
+
+#rating-top{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+.card{
+    box-shadow: none;
+    margin-bottom: 2em;
+}
+
+.text-center{
+    text-align: center;
+}

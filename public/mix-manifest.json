@@ -5,5 +5,6 @@
     "/custom/js/vendor.js": "/custom/js/vendor.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/custom/css/cstm-app.css": "/custom/css/cstm-app.css"
+    "/custom/css/cstm-app.css": "/custom/css/cstm-app.css",
+    "/custom/css/rating.css": "/custom/css/rating.css"
 }

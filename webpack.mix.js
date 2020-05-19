@@ -16,6 +16,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 mix.styles(['resources/assets/css/app.css', './node_modules/bulma/bulma.sass'], 'public/custom/css/cstm-app.css');
 
+mix.styles(['resources/assets/css/rating.css'], 'public/custom/css/rating.css');
+
+
 mix.js('resources/assets/js/custom.js', 'public/custom/js/cstm-app.js').extract(['vue']);
 
 mix.js('resources/assets/js/offer.js',

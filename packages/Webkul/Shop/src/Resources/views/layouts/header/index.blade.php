@@ -161,15 +161,14 @@
 
                 {!! view_render_event('bagisto.shop.layout.header.cart-item.before') !!}
 
-                <li class="cart-dropdown-container">
+                <li>
 
 {{--                    @include('shop::checkout.cart.mini-cart')--}}
-                    <a class="cart-link" href="/page/rating">
+                    <a class="alert-link" style="color: #4a4a4a" href="/page/rating">
                         <span class="icon cart-icon"></span>
-
                         <span class="name">
                             {{ __('shop::app.header.rating') }}
-    {{--                            <span class="count"> ({{ $cart->items->count() }})</span>--}}
+{{--                                <span class="count"> ({{ $cart->items->count() }})</span>--}}
                         </span>
                     </a>
 

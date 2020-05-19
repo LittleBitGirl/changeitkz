@@ -4,8 +4,7 @@ namespace Webkul\Customer\Repositories;
 
 use Webkul\Core\Eloquent\Repository;
 
-class CustomerRepository extends Repository
-{
+class CustomerRepository extends Repository {
     /**
      * Specify Model class name
      *
@@ -15,5 +14,10 @@ class CustomerRepository extends Repository
     function model()
     {
         return 'Webkul\Customer\Contracts\Customer';
+    }
+
+    function getTop()
+    {
+        return $this->orderBy('points', 'desc')->all()->take(25);
     }
 }
