@@ -19,12 +19,10 @@
                             <option value="all" selected="selected">
                                 Все
                             </option>
-                            {!! $categories = \Webkul\Category\Models\Category::onlyRu()->get() !!}
-                            @foreach($categories as $category)
+                            @foreach(app('Webkul\Category\Repositories\CategoryRepository')->getCategoryTree() as $category)
                                 @if(isset($category))
-                                    {!! $translation = $category['translations'][0]!!}
                                     <option value="{{$category->id}}">
-                                        {{ $translation['name'] }}
+                                        {{ $category['translations'][1]->name }}
                                     </option>
                                 @endif
                             @endforeach
@@ -202,11 +200,11 @@
     <script type="text/javascript">
         function filterCategory(event){
             id = $('.category-filter').children(':selected').val();
+            console.log(id);
             if(id !== 'all'){
-                $('.product-card').hide();
-                $('.category-'+id).show();
+                window.location.href='/category/' + id
             } else{
-                $('.product-card').show();
+                window.location.href='/page/whole-catalog'
             }
         }
     </script>

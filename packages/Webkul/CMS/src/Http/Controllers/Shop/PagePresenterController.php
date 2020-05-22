@@ -37,4 +37,16 @@ class PagePresenterController extends Controller
 
         return view('shop::cms.page')->with('page', $page);
     }
+
+    public function categoryPresenter($id)
+    {
+        $category = app('Webkul\Category\Repositories\CategoryRepository')->getCategoryTree()->find($id);
+        return view('shop::home.categories.category', [
+            'id' => $category->id,
+            'page_title' => $category->name,
+            'meta_title' => $category->name,
+            'categoryName' => $category->name
+        ]);
+    }
+
 }

@@ -18,6 +18,11 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::search.search'
     ])->name('shop.search.index');
 
+//    Route::get('/category/{categoryId}', 'Webkul\Shop\Http\Controllers\CategoryController@show')->defaults('_config', [
+//        'view' => 'shop::home.categories.category'
+//    ])->name('shop.category.show');
+
+
     //Country State Selector
     Route::get('get/countries', 'Webkul\Core\Http\Controllers\CountryStateController@getCountries')->defaults('_config', [
         'view' => 'shop::test'
@@ -323,6 +328,8 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     //customer routes end here
 
     Route::get('page/{slug}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@presenter')->name('shop.cms.page');
+    Route::get('category/{id}', 'Webkul\CMS\Http\Controllers\Shop\PagePresenterController@categoryPresenter')
+        ->name('shop.category.show');
 
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
