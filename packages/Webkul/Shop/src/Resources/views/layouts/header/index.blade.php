@@ -16,7 +16,10 @@
                 <li>
                     <div id="filter-control" class="control-group">
                         <select id="category-filter" onchange="filterCategory(event)" class="filter-column-select control category-filter">
-                            <option value="all" selected="selected">
+                            <option selected="selected">
+                                Выбрать категорию
+                            </option>
+                            <option value="all">
                                 Все
                             </option>
                             @foreach(app('Webkul\Category\Repositories\CategoryRepository')->getCategoryTree() as $category)
@@ -199,11 +202,11 @@
 @push('scripts')
     <script type="text/javascript">
         function filterCategory(event){
-            id = $('.category-filter').children(':selected').val();
+            var id = $('.category-filter').children(':selected').val();
             console.log(id);
             if(id !== 'all'){
                 window.location.href='/category/' + id
-            } else{
+            } else if(id == 'all'){
                 window.location.href='/page/whole-catalog'
             }
         }
