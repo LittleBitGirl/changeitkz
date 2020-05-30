@@ -10,6 +10,7 @@ return [
          */
 
         \Webkul\Attribute\Providers\ModuleServiceProvider::class,
+        \Webkul\Achievement\Providers\ModuleServiceProvider::class,
         \Webkul\BookingProduct\Providers\ModuleServiceProvider::class,
         \Webkul\Category\Providers\ModuleServiceProvider::class,
         \Webkul\Checkout\Providers\ModuleServiceProvider::class,

@@ -1,0 +1,27 @@
+{
+    "name": "bagisto/laravel-product",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Assina Abdussaitova",
+            "email": "assina.abdussaitova@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Achievement\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Achievement\\Providers\\AchievementServiceProvider"
+            ],
+            "aliases": {
+                "Bouncer": "Webkul\\Achievement\\Facades\\Bouncer"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}

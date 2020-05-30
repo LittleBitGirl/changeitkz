@@ -255,6 +255,7 @@ return [
         Webkul\Customer\Providers\CustomerServiceProvider::class,
         Webkul\Inventory\Providers\InventoryServiceProvider::class,
         Webkul\Product\Providers\ProductServiceProvider::class,
+        Webkul\Achievement\Providers\AchievementServiceProvider::class,
         Webkul\Checkout\Providers\CheckoutServiceProvider::class,
         Webkul\Shipping\Providers\ShippingServiceProvider::class,
         Webkul\Payment\Providers\PaymentServiceProvider::class,
