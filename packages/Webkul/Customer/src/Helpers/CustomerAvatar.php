@@ -10,6 +10,5 @@ class CustomerAvatar
     {
         $image = $customer->ava_path;
 
-
     }
 }
