@@ -169,7 +169,6 @@
 
 
 .reward-card{
-    width: 25%;
     padding-bottom: 10px;
 }
 .reward-card img{
@@ -189,6 +188,8 @@
     text-align: center;
     font-size: 14px;
     margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 @charset "utf-8"
 /*! bulma.io v0.8.2 | MIT License | github.com/jgthms/bulma */

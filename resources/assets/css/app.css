@@ -169,7 +169,6 @@
 
 
 .reward-card{
-    width: 25%;
     padding-bottom: 10px;
 }
 .reward-card img{
@@ -189,4 +188,6 @@
     text-align: center;
     font-size: 14px;
     margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
 }

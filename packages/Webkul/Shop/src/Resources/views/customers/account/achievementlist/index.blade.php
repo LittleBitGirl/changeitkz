@@ -15,7 +15,7 @@
                 <div class="horizontal-rule"></div>
             </div>
 
-            <div class="d-flex justify-content-between">
+            <div class="product-grid-4">
                 @foreach (app('Webkul\Achievement\Repositories\AchievementRepository')->getSortedRewards() as $reward)
 
                     @include ('shop::customers.account.achievementlist.card', ['reward' => $reward])
