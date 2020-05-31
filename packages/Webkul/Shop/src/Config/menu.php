@@ -27,10 +27,15 @@ return [
         'route' =>'customer.reviews.index',
         'sort'  => 5,
     ], [
+        'key'   => 'account.achievementlist',
+        'name'  => 'shop::app.layouts.achievements',
+        'route' => 'customer.achievements.index',
+        'sort'  => 6,
+    ], [
         'key'   => 'account.downloadables',
         'name'  => 'shop::app.layouts.downloadable-products',
         'route' => 'customer.offer.index',
-        'sort'  => 6,
+        'sort'  => 7,
     ]
 ];
 

@@ -5,7 +5,7 @@ namespace Webkul\Shop\Http\Controllers;
 use Webkul\Product\Models\ProductFlat;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Product\Repositories\ProductReviewRepository;
-
+use Webkul\Achievement\Helpers\AchievementChecker;
 class ReviewController extends Controller
 {
     /**
@@ -79,6 +79,9 @@ class ReviewController extends Controller
             $user->save();
             $data['customer_id'] = $user->id;
             $data['name'] = $user->first_name . ' ' . $user->last_name;
+            $achecker = new AchievementChecker();
+            $achecker->checkAndSetPointReward($user);
+            $achecker->checkAndSetNumberReward($user);
         }
 
         $data['status'] = 'pending';

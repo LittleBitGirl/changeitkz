@@ -286,6 +286,10 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                     'view' => 'shop::customers.account.offer.index'
                 ])->name('customer.offer.index');
 
+                Route::get('achievements', 'Webkul\Customer\Http\Controllers\AchievementlistController@index')->defaults('_config', [
+                    'view' => 'shop::customers.account.achievementlist.index'
+                ])->name('customer.achievements.index');
+
                 Route::post('create-offer', 'Webkul\Product\Http\Controllers\OfferController@create')
                     ->name('customer.offer.create');
                 Route::get('delete/{id}', 'Webkul\Product\Http\Controllers\OfferController@delete')

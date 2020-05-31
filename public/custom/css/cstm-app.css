@@ -168,6 +168,28 @@
 }
 
 
+.reward-card{
+    width: 25%;
+    padding-bottom: 10px;
+}
+.reward-card img{
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reward-header{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+.reward-text{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
 @charset "utf-8"
 /*! bulma.io v0.8.2 | MIT License | github.com/jgthms/bulma */
 @import "sass/utilities/_all"

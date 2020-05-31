@@ -13,7 +13,8 @@ return [
         'wishlist' => 'Список желаний',
         'donelist' => 'Сделано',
         'orders' => 'Челленджи',
-        'downloadable-products' => 'Предложения'
+        'downloadable-products' => 'Предложения',
+        'achievements' => 'Мои достижения'
     ],
     'cms-pages' => [
         'prefix' => 'Рубрика',
@@ -101,6 +102,7 @@ return [
             'title' => 'Войти'
         ],
 
+
         'signup-form' => [
             'page-title' => 'Создать новую учетную запись клиента',
             'title' => 'Зарегистрироваться',
@@ -177,6 +179,9 @@ return [
         'account' => [
             'dashboard' => 'Редактировать профиль',
             'menu' => 'Меню',
+            'achievementlist' => [
+                'title' => 'Мои достижения'
+            ],
             'offer' => [
                 'id' => 'ID предложения',
                 'date' => 'Дата',

@@ -167,3 +167,26 @@
     z-index: 2000;
 }
 
+
+.reward-card{
+    width: 25%;
+    padding-bottom: 10px;
+}
+.reward-card img{
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reward-header{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+.reward-text{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
