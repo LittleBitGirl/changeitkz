@@ -88,6 +88,7 @@
             </product-view>
         </div>
 
+        @include ('shop::products.view.recommended-products')
         @include ('shop::products.view.related-products')
 
         @include ('shop::products.view.up-sells')

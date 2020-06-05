@@ -2,6 +2,7 @@
 
 namespace Webkul\Customer\Http\Controllers;
 
+use Webkul\Customer\Helpers\CustomerRecommendation;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Customer\Repositories\DonelistRepository;
 use Cart;
@@ -96,6 +97,7 @@ class DonelistController extends Controller
         if ($checked->isEmpty()) {
             if ($this->donelistRepository->create($data)) {
                 session()->flash('success', trans('customer::app.donelist.success'));
+                (new CustomerRecommendation)->makeRecommendations(auth()->guard('customer')->user()->id, $product->id);
 
                 return redirect()->back();
             } else {
