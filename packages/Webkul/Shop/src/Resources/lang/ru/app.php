@@ -44,6 +44,7 @@ return [
         'rating' => 'Рейтинг',
         'profile' => 'Профиль',
         'wishlist' => 'Список желаний',
+        'cart' => 'Принятые вызовы',
         'logout' => 'Выйти',
         'search-text' => 'Поиск челленджей здесь'
     ],
@@ -426,6 +427,7 @@ return [
     ],
 
     'products' => [
+        'recommended-product-title' => 'Рекоммендованное для вас',
         'layered-nav-title' => 'Shop By',
         'price-label' => 'Столь же низко',
         'remove-filter-link-title' => 'Очистить все',

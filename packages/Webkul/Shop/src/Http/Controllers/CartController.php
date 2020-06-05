@@ -150,7 +150,6 @@ class CartController extends Controller
     public function moveToWishlist($id)
     {
         $result = Cart::moveToWishlist($id);
-
         if ($result) {
             session()->flash('success', trans('shop::app.checkout.cart.move-to-wishlist-success'));
         } else {

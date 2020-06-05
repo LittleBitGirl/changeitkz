@@ -5,6 +5,7 @@ namespace Webkul\Customer\Http\Controllers;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Customer\Repositories\WishlistRepository;
 use Cart;
+use Webkul\Customer\Helpers\CustomerRecommendation;
 
 class WishlistController extends Controller
 {
@@ -96,7 +97,7 @@ class WishlistController extends Controller
         if ($checked->isEmpty()) {
             if ($this->wishlistRepository->create($data)) {
                 session()->flash('success', trans('customer::app.wishlist.success'));
-
+                (new CustomerRecommendation)->makeRecommendations(auth()->guard('customer')->user()->id, $product->id);
                 return redirect()->back();
             } else {
                 session()->flash('error', trans('customer::app.wishlist.failure'));

@@ -10,6 +10,7 @@ use Webkul\Customer\Contracts\Customer as CustomerContract;
 use Webkul\Customer\Notifications\CustomerResetPassword;
 use Webkul\Product\Models\ProductReviewProxy;
 use Webkul\Sales\Models\OrderProxy;
+use Webkul\Customer\Helpers\CustomerRecommendation;
 
 class Customer extends Authenticatable implements CustomerContract, JWTSubject {
     use Notifiable;
@@ -179,5 +180,10 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject {
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function recommended_products()
+    {
+        return (new CustomerRecommendation)->getCustomerRecommendations($this->id);
     }
 }
