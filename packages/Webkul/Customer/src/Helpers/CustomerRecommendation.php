@@ -23,8 +23,10 @@ class CustomerRecommendation {
         $products = ProductFlat::whereNotNull('meta_keywords')->get();
         $products->map(function ($item) use ($keywords) {
             foreach ($keywords as $keyword => $weight) {
-                if (strpos($item->meta_keywords, $keyword) !== false) {
-                    $item['key_weight'] += 1;
+                if($keyword != ''){
+                    if (strpos($item->meta_keywords, $keyword) !== false) {
+                        $item['key_weight'] += 1;
+                    }
                 }
             }
         });
@@ -57,7 +59,7 @@ class CustomerRecommendation {
                     $keywords[$product_keyword] = 1;
                 }
             }
-            if(!isEmpty($keywords)){
+            if(!empty($keywords)){
                 $recommendation->keywords = json_encode($keywords);
                 $recommendation->save();
             }
