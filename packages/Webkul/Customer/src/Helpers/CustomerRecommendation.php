@@ -52,14 +52,15 @@ class CustomerRecommendation {
             $recommendation = new UserRecommendation();
             $recommendation->customer_id = $user_id;
             $keywords = [];
-
             foreach ($product_keywords as $product_keyword) {
                 if($product_keyword !== ''){
                     $keywords[$product_keyword] = 1;
                 }
             }
-            $recommendation->keywords = json_encode($keywords);
-            $recommendation->save();
+            if(!isEmpty($keywords)){
+                $recommendation->keywords = json_encode($keywords);
+                $recommendation->save();
+            }
         }
 
     }
