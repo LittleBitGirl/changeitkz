@@ -12,7 +12,7 @@ return [
         'reviews' => 'My histories',
         'wishlist' => 'List of wishes',
         'donelist' => 'Done',
-        'orders' => 'Challanges',
+        'orders' => 'Challenges',
         'downloadable-products' => 'Offers'
     ],
 
@@ -35,6 +35,7 @@ return [
         'dropdown-text' => 'Profile, Achievements, Rank, Wish List',
         'sign-in' => 'Log in',
         'sign-up' => 'Registration',
+        'rating' => 'Rating',
         'account' => 'Account',
         'cart' => 'Received Calls',
         'profile' => 'Profile',
