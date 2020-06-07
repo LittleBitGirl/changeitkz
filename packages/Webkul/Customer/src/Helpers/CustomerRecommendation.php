@@ -37,7 +37,7 @@ class CustomerRecommendation {
     public function makeRecommendations($user_id, $product_id)
     {
         $recommendation = UserRecommendation::where('customer_id', $user_id)->first();
-        $product_keywords = ProductFlat::where('product_id', $product_id)->first()->meta_keywords;
+        $product_keywords = ProductFlat::where('product_id', $product_id)->where('locale', 'ru')->first()->meta_keywords;
         if ($recommendation != null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
             $user_keywords = json_decode($recommendation->keywords, true);
@@ -52,7 +52,6 @@ class CustomerRecommendation {
                 }
             }
             $recommendation->keywords = json_encode($user_keywords);
-            dd($recommendation);
             $recommendation->save();
         } else if ($recommendation == null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
@@ -66,10 +65,8 @@ class CustomerRecommendation {
             }
             $keywords['общее'] = 1;
             $recommendation->keywords = json_encode($keywords);
-            dd($recommendation);
             $recommendation->save();
         }
-        dd(ProductFlat::where('product_id', $product_id)->first());
     }
 
     public function makeFirstRecommendations($user_id)
