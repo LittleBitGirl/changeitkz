@@ -6,7 +6,6 @@ namespace Webkul\Customer\Helpers;
 use Nwidart\Modules\Collection;
 use Webkul\Customer\Models\CustomerRecommendation as UserRecommendation;
 use Webkul\Product\Models\ProductFlat;
-use Webkul\Product\Repositories\ProductRepository;
 
 class CustomerRecommendation {
 
@@ -23,7 +22,7 @@ class CustomerRecommendation {
         $products = ProductFlat::whereNotNull('meta_keywords')->get();
         $products->map(function ($item) use ($keywords) {
             foreach ($keywords as $keyword => $weight) {
-                if($keyword != ''){
+                if ($keyword != '') {
                     if (strpos($item->meta_keywords, $keyword) !== false) {
                         $item['key_weight'] += 1;
                     }
@@ -31,6 +30,7 @@ class CustomerRecommendation {
             }
         });
         $sorted = $products->sortByDesc('key_weight');
+
         return $sorted->whereNotNull('key_weight')->take(4);
     }
 
@@ -41,7 +41,7 @@ class CustomerRecommendation {
         if ($recommendation != null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
             $user_keywords = json_decode($recommendation->keywords, true);
-            if($user_keywords == null) {
+            if ($user_keywords == null) {
                 $user_keywords = [];
             }
             foreach ($product_keywords as $product_keyword) {
@@ -59,7 +59,7 @@ class CustomerRecommendation {
             $recommendation->customer_id = $user_id;
             $keywords = [];
             foreach ($product_keywords as $product_keyword) {
-                if($product_keyword !== ''){
+                if ($product_keyword !== '') {
                     $keywords[$product_keyword] = 1;
                 }
             }
@@ -68,5 +68,13 @@ class CustomerRecommendation {
             $recommendation->save();
         }
 
+    }
+
+    public function makeFirstRecommendations($user_id)
+    {
+        $recommendation = new UserRecommendation;
+        $recommendation->customer_id = $user_id;
+        $recommendation->keywords = '{"общее":1}';
+        $recommendation->save();
     }
 }

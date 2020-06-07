@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Webkul\Customer\Mail\RegistrationEmail;
 use Webkul\Customer\Mail\VerificationEmail;
+use Webkul\Customer\Models\CustomerRecommendation;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
+use Webkul\Customer\Helpers\CustomerRecommendation as UserRecommendation;
 use Cookie;
 
 class RegistrationController extends Controller
@@ -101,6 +103,8 @@ class RegistrationController extends Controller
         $customer = $this->customerRepository->create($data);
 
         Event::dispatch('customer.registration.after', $customer);
+
+        (new UserRecommendation)->makeFirstRecommendations($customer->id);
 
         if ($customer) {
             if (core()->getConfigData('customer.settings.email.verification')) {
