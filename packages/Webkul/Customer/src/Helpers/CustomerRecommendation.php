@@ -41,15 +41,17 @@ class CustomerRecommendation {
         $product_keywords = explode(', ', $product_keywords);
         if (isset($recommendation) && !empty($product_keywords)) {
             $user_keywords = json_decode($recommendation->keywords, true);
-            foreach ($product_keywords as $product_keyword) {
-                if (array_key_exists($product_keyword, $user_keywords)) {
-                    $user_keywords[$product_keyword] += 1;
-                } else {
-                    $user_keywords[$product_keyword] = 1;
+            if($user_keywords != null){
+                foreach ($product_keywords as $product_keyword) {
+                    if (array_key_exists($product_keyword, $user_keywords)) {
+                        $user_keywords[$product_keyword] += 1;
+                    } else {
+                        $user_keywords[$product_keyword] = 1;
+                    }
                 }
+                $recommendation->keywords = json_encode($user_keywords);
+                $recommendation->save();
             }
-            $recommendation->keywords = json_encode($user_keywords);
-            $recommendation->save();
         } else {
             $recommendation = new UserRecommendation;
             $recommendation->customer_id = $user_id;
@@ -59,6 +61,7 @@ class CustomerRecommendation {
                     $keywords[$product_keyword] = 1;
                 }
             }
+            $keywords['общее'] = 1;
             if(!empty($keywords)){
                 $recommendation->keywords = json_encode($keywords);
                 $recommendation->save();
