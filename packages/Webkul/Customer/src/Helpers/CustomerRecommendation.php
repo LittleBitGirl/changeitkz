@@ -69,7 +69,7 @@ class CustomerRecommendation {
             dd($recommendation);
             $recommendation->save();
         }
-
+        dd($recommendation);
     }
 
     public function makeFirstRecommendations($user_id)
