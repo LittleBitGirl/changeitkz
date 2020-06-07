@@ -51,7 +51,7 @@ class CustomerRecommendation {
             $recommendation->keywords = json_encode($user_keywords);
             $recommendation->save();
         } else {
-            $recommendation = new UserRecommendation();
+            $recommendation = new UserRecommendation;
             $recommendation->customer_id = $user_id;
             $keywords = [];
             foreach ($product_keywords as $product_keyword) {
@@ -63,6 +63,7 @@ class CustomerRecommendation {
                 $recommendation->keywords = json_encode($keywords);
                 $recommendation->save();
             }
+            $recommendation->save();
         }
 
     }
