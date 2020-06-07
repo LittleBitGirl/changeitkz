@@ -52,6 +52,7 @@ class CustomerRecommendation {
                 }
             }
             $recommendation->keywords = json_encode($user_keywords);
+            dd($recommendation);
             $recommendation->save();
         } else if ($recommendation == null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
@@ -65,6 +66,7 @@ class CustomerRecommendation {
             }
             $keywords['общее'] = 1;
             $recommendation->keywords = json_encode($keywords);
+            dd($recommendation);
             $recommendation->save();
         }
 
