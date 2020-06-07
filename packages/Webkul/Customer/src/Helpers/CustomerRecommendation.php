@@ -52,7 +52,8 @@ class CustomerRecommendation {
                 $recommendation->keywords = json_encode($user_keywords);
                 $recommendation->save();
             }
-        } else if ($recommendation == null) {
+        } else if ($recommendation == null && !empty($product_keywords)) {
+            $product_keywords = explode(', ', $product_keywords);
             $recommendation = new UserRecommendation;
             $recommendation->customer_id = $user_id;
             $keywords = [];
