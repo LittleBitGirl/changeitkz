@@ -69,7 +69,7 @@ class CustomerRecommendation {
             dd($recommendation);
             $recommendation->save();
         }
-        dd($product_keywords);
+        dd(ProductFlat::where('product_id', $product_id)->first());
     }
 
     public function makeFirstRecommendations($user_id)
