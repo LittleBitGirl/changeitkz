@@ -41,17 +41,18 @@ class CustomerRecommendation {
         if ($recommendation != null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
             $user_keywords = json_decode($recommendation->keywords, true);
-            if($user_keywords != null){
-                foreach ($product_keywords as $product_keyword) {
-                    if (array_key_exists($product_keyword, $user_keywords)) {
-                        $user_keywords[$product_keyword] += 1;
-                    } else {
-                        $user_keywords[$product_keyword] = 1;
-                    }
-                }
-                $recommendation->keywords = json_encode($user_keywords);
-                $recommendation->save();
+            if($user_keywords == null) {
+                $user_keywords = [];
             }
+            foreach ($product_keywords as $product_keyword) {
+                if (array_key_exists($product_keyword, $user_keywords)) {
+                    $user_keywords[$product_keyword] += 1;
+                } else {
+                    $user_keywords[$product_keyword] = 1;
+                }
+            }
+            $recommendation->keywords = json_encode($user_keywords);
+            $recommendation->save();
         } else if ($recommendation == null && !empty($product_keywords)) {
             $product_keywords = explode(', ', $product_keywords);
             $recommendation = new UserRecommendation;
