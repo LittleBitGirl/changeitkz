@@ -20,7 +20,7 @@ return [
         'no-result-found' => 'لا توجد نتائج.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => 'عنوان الصفحة',
         'featured-products' => 'المنتجات المميزة',
         'new-products' => 'المنتجات الجديدة',

@@ -26,7 +26,7 @@ return [
         'no-result-found' => 'Мы не нашли ничего :(.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => config('app.name') . ' - Главная',
         'featured-products' => 'Рекомендуемые челленджи',
         'all-products' => 'Весь каталог челленджей',

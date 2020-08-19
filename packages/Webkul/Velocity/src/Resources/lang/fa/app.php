@@ -141,7 +141,7 @@ return [
         ],
     ],
 
-    'home' => [
+    'HomeController' => [
         'view-all' => 'مشاهده همه',
         'add-to-cart' => 'افزودن به سبد خرید',
         'hot-categories' => 'دسته بندی های داغ',

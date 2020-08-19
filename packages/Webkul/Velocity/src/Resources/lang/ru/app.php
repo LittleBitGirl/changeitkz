@@ -141,7 +141,7 @@ return [
         ],
     ],
 
-    'home' => [
+    'HomeController' => [
         'view-all' => 'View All',
         'add-to-cart' => 'Add To Cart',
         'hot-categories' => 'Hot Categories',

@@ -20,7 +20,7 @@ return [
         'no-result-found' => 'ما هیچ سابقه ای پیدا نکردیم.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => 'فروشگاه - خانه',
         'featured-products' => 'محصولات برجسته',
         'new-products' => 'محصولات جدید',

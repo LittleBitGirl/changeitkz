@@ -18,7 +18,7 @@ return [
         'error' => 'Algo ha ido mal, por favor prueba más tarde.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => config('app.name') . ' - Inicio',
         'featured-products' => 'Productos Destacados',
         'new-products' => 'Nuevos Productos',

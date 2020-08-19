@@ -16,7 +16,7 @@ return [
         'no-result-found' => 'We could not find any records.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => config('app.name') . ' - Home',
         'featured-products' => 'Produtos em Destaque',
         'new-products' => 'Novos Produtos',

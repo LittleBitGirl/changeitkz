@@ -21,7 +21,7 @@ return [
         'no-result-found' => 'We did not find anything :(.'
     ],
 
-    'home' => [
+    'HomeController' => [
         'page-title' => config('app.name') . ' - Main page',
         'featured-products' => 'Featured Challenges',
         'all-products' => 'The entire catalog of challenges',

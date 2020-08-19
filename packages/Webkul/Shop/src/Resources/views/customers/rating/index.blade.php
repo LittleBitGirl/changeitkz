@@ -10,7 +10,7 @@
     <div id="rating-top" class="product-grid-1">
         @foreach (app('Webkul\Customer\Repositories\CustomerRepository')->getTop() as $user)
 
-            @include ('shop::customers.rating.card', ['user' => $user])
+            @include ('shop::customers.rating.card', ['Admin' => $user])
 
         @endforeach
 

@@ -141,7 +141,7 @@ return [
         ],
     ],
 
-    'home' => [
+    'HomeController' => [
         'view-all' => 'Bekijk alles',
         'add-to-cart' => 'In Winkelwagen',
         'hot-categories' => 'Hot Categories',

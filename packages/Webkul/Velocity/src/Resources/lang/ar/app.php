@@ -141,7 +141,7 @@ return [
         ],
     ],
 
-    'home' => [
+    'HomeController' => [
         'view-all' => 'عرض الكل',
         'add-to-cart' => 'أضف إلى السلة',
         'hot-categories' => 'الفئات الساخنة',
